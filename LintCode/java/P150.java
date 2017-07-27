@@ -1,4 +1,4 @@
-package best_time_to_buy_stock;
+package java;
 
 /**
  * 3

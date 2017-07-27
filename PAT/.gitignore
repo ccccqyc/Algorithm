@@ -2,3 +2,6 @@
 target
 PAT.iml
 test
+.gitignore
+cp*
+pom.xml

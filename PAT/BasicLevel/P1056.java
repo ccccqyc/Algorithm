@@ -15,6 +15,7 @@ public class P1056 {
         for (int i = 0; i < length; i++) {
             result += 11 * (length - 1) * in.nextInt();
         }
+        in.close();
         System.out.println(result);
     }
 }

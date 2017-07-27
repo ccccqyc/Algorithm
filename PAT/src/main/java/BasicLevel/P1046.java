@@ -1,4 +1,4 @@
-package blog.chuan.basicLevel;
+package BasicLevel;
 
 import java.util.Scanner;
 

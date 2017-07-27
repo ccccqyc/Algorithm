@@ -1,5 +1,5 @@
-[The LintCode](http://www.lintcode.com/)
-
+[The LintCode](http://www.lintcode.com/)<br>
+共计666题
 
 
 |  ID  | Title                               |                Java                | 备注                       |

@@ -1,7 +1,7 @@
 
-[#PATest](https://www.patest.cn/contests)
+[PATest](https://www.patest.cn/contests)
 
-##[PAT (Basic Level) Practise （中文）](https://www.patest.cn/contests/pat-b-practise)
+[PAT (Basic Level) Practise （中文）](https://www.patest.cn/contests/pat-b-practise)
 
 |  ID  | Title                               |                Java                | 备注                       |
 | :--: | :----------------------------------: | :--------------------------------------: | :-----------------------: |

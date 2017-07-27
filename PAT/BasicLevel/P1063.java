@@ -17,6 +17,7 @@ public class P1063 {
                 max = list2[i];
             }
         }
+        scanner.close();
         System.out.printf("%.2f", Math.sqrt(max));
     }
 }

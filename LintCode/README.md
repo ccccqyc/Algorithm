@@ -4,5 +4,5 @@
 
 |  ID  | Title                               |                Java                | 备注                       |
 | :--: | :----------------------------------: | :--------------------------------------: | :-----------------------: |
-| 150 |  Best Time to Buy and Sell Stock II                      | [查看题解](https://github.com/ccccqyc/Algorithm/blob/master/LintCode/java/P150.java) | 波浪上升段差值和                   |
+| 150 |  Best Time to Buy and Sell Stock II                      | [查看题解](https://github.com/ccccqyc/Algorithm/blob/master/LintCode/P150.java) | 波浪上升段差值和                   |
 

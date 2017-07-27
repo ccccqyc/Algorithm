@@ -12,7 +12,7 @@ package best_time_to_buy_stock;
  * 实际上是求波浪线的所有上升段的长度和。
  * Created by q on 17-7-23.
  */
-public class Two {
+public class P150 {
     /**
      * @param prices: Given an integer array
      * @return: Maximum profit

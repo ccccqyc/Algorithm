@@ -1,9 +1,7 @@
-package find_peak_element;
-
 /**
  * Created by q on 17-7-27.
  */
-public class Solution {
+public class P75 {
     /**
      * @param A: An integers array.
      * @return: return any of peek positions.

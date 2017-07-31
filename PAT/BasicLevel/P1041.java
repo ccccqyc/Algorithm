@@ -1,30 +1,44 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Created by q on 17-7-29.
  */
 public class P1041 {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(bufferedReader.readLine());
 
-        Map<Integer, int[]> map = new HashMap<>();
-        int sNum = in.nextInt();
-        int testNum = 0;
-        int firstSeat = 0;
-        int lastSeat = 0;
-        int[] seat = {testNum,lastSeat};
-        for (int i = 0; i < sNum; i++) {
-            testNum = in.nextInt();
-            firstSeat = in.nextInt();
-            lastSeat  = in.nextInt();
-            map.put(firstSeat,seat);
+        Student[] students = new Student[n];
+
+        for (int i = 0; i < n; i++) {
+            String[] strings = bufferedReader.readLine().split(" ");
+            students[i] = new Student(strings[0], strings[1], strings[2]);
         }
 
-        for (int i = 0; i <in.nextInt() ; i++) {
-            System.out.println(map.get(in.nextInt()));
-        }
+        int m = Integer.parseInt(bufferedReader.readLine());
+        String[] test = bufferedReader.readLine().split(" ");
+        for (int i = 0; i < m; i++) {
+            String findTestSeat = test[i];
 
+            for (int j = 0; j < n; j++) {
+                if (students[j].testSeat.equals(findTestSeat)) {
+                    System.out.println(students[j].id + " " + students[j].seat);
+                }
+            }
+        }
+    }
+}
+
+class Student {
+    String id;
+    String testSeat;
+    String seat;
+
+    public Student(String id, String testSeat, String seat) {
+        this.id = id;
+        this.testSeat = testSeat;
+        this.seat = seat;
     }
 }

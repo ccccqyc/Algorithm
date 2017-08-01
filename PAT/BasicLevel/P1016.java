@@ -9,6 +9,7 @@ public class P1016 {
         String[] strings = bufferedReader.readLine().split(" ");
 
         bufferedReader.close();
+
         int paNum = thePCount(strings[0], strings[1]);
         int pbNum = thePCount(strings[2], strings[3]);
 

@@ -7,7 +7,6 @@ public class P1016 {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         String[] strings = bufferedReader.readLine().split(" ");
-
         bufferedReader.close();
 
         int paNum = thePCount(strings[0], strings[1]);

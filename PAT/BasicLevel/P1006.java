@@ -8,6 +8,8 @@ public class P1006 {
         Scanner in = new Scanner(System.in);
         int num = in.nextInt();
 
+        in.close();
+
         for (int i = 0; i < num / 100; i++) {
             System.out.print("B");
         }

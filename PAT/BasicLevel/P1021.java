@@ -1,12 +1,15 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
  * Created by q on 17-8-1.
  */
 public class P1021 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+//        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         Scanner in = new Scanner(System.in);
         String theNum = in.next();
+
         in.close();
 
         int num0 = 0;
@@ -55,16 +58,37 @@ public class P1021 {
                     break;
             }
         }
-        System.out.println("0:" + num0);
-        System.out.println("1:" + num1);
-        System.out.println("2:" + num2);
-        System.out.println("3:" + num3);
-        System.out.println("4:" + num4);
-        System.out.println("5:" + num5);
-        System.out.println("6:" + num6);
-        System.out.println("7:" + num7);
-        System.out.println("8:" + num8);
-        System.out.println("9:" + num9);
+
+        if (num0 != 0) {
+            System.out.println("0:" + num0);
+        }
+        if (num1 != 0) {
+            System.out.println("1:" + num1);
+        }
+        if (num2 != 0) {
+            System.out.println("2:" + num2);
+        }
+        if (num3 != 0) {
+            System.out.println("3:" + num3);
+        }
+        if (num4 != 0) {
+            System.out.println("4:" + num4);
+        }
+        if (num5 != 0) {
+            System.out.println("5:" + num5);
+        }
+        if (num6 != 0) {
+            System.out.println("6:" + num6);
+        }
+        if (num7 != 0) {
+            System.out.println("7:" + num7);
+        }
+        if (num8 != 0) {
+            System.out.println("8:" + num8);
+        }
+        if (num9 != 0) {
+            System.out.println("9:" + num9);
+        }
 
     }
 }

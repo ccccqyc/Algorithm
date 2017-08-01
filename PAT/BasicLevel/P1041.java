@@ -19,6 +19,8 @@ public class P1041 {
 
         int m = Integer.parseInt(bufferedReader.readLine());
         String[] test = bufferedReader.readLine().split(" ");
+
+        bufferedReader.close();
         for (int i = 0; i < m; i++) {
             String findTestSeat = test[i];
 

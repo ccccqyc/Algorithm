@@ -12,8 +12,9 @@ public class P1036 {
         bufferedReader.close();
 
         int edge = Integer.parseInt(s.split(" ")[0]);
-        char c = String.valueOf(s.split(" ")[1]).charAt(0);
+        char c = s.split(" ")[1].charAt(0);
 
+        //Math.round Java中针对小数部分四舍五入
         for (int j = 0; j < Math.round(edge / 2.0); j++) {
             for (int i = 0; i < edge; i++) {
                 if (j == 0 || j == Math.round(edge / 2.0) - 1) {

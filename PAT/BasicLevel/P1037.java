@@ -11,6 +11,7 @@ public class P1037 {
         String[] strings = bufferedReader.readLine().split(" ");
         bufferedReader.close();
 
+        //note:转义字符
         String[] payS = strings[0].split("\\.");
         String[] giveS = strings[1].split("\\.");
 
@@ -37,7 +38,8 @@ public class P1037 {
         save[0] = save[0] + giveI[0] - payI[0];
         if (save[0] < 0) {
             save[0] += 1;
-            save[1] += -16;//16
+            //注意此处为16,因save[2]取去1位
+            save[1] += -16;
             save[2] += -29;
         }
         System.out.println(save[0] + "." + Math.abs(save[1]) + "." + Math.abs(save[2]));

@@ -20,5 +20,5 @@
 | 1056 |  [组合数的和(15)](https://www.patest.cn/contests/pat-b-practise/1056)                      | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/BasicLevel/P1056.java) |                    |
 | 1061 |  [判断题(15)](https://www.patest.cn/contests/pat-b-practise/1061)                      | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/BasicLevel/P1061.java) |                    |
 | 1063 |  [计算谱半径(20)](https://www.patest.cn/contests/pat-b-practise/1063)                      | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/BasicLevel/P1063.java) |                    |
-#| 10 |  [](https://www.patest.cn/contests/pat-b-practise/10)                      | #[题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/BasicLevel/P10.java) |                    |
+#| 10 |  [](https://www.patest.cn/contests/pat-b-practise/10)                      | #q[题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/BasicLevel/P10.java) |                    |
 

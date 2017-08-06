@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 /**
  * Created by q on 17-8-5.
@@ -10,7 +9,6 @@ public class P1039 {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
-        Scanner in = new Scanner(System.in);
         String[] chars1 = bufferedReader.readLine().split("");
         String[] chars2 = bufferedReader.readLine().split("");
 

@@ -1,7 +1,5 @@
-# Created by .ignore support plugin (hsz.mobi)
 target
 PAT.iml
-test
+test/
 .gitignore
-cp*
-pom.xml
+src/

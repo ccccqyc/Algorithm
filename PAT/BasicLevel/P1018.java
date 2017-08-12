@@ -11,11 +11,9 @@ public class P1018 {
         in.nextLine();
         String[][] characters = new String[length][2];
 
-
         int aWin = 0;
         int aVb = 0;
         int bWin = 0;
-
         for (int i = 0; i < length; i++) {
             characters[i] = in.nextLine().split(" ");
 
@@ -26,15 +24,10 @@ public class P1018 {
             } else {
                 bWin++;
             }
-
         }
         in.close();
-
-
         System.out.println(aWin + " " + aVb + " " + bWin);
         System.out.println(bWin + " " + aVb + " " + aWin);
-
-
     }
 
     private static int judge(String s1, String s2) {

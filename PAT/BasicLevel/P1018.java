@@ -30,6 +30,7 @@ public class P1018 {
             }
         }
         in.close();
+
         System.out.println(aWin + " " + aVb + " " + bWin);
         System.out.println(bWin + " " + aVb + " " + aWin);
         System.out.print(print(aJCB) + " " + print(bJCB));

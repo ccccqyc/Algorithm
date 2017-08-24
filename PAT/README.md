@@ -1,6 +1,15 @@
 
 [PATest](https://www.patest.cn/contests)
 
+[PAT (Advanced Level) Practise](https://www.patest.cn/contests/pat-a-practise)
+|  ID  | Title                               |                Java                | 备注                       |
+| :--: | :----------------------------------: | :--------------------------------------: | :-----------------------: |
+| 1001 |  [A+B Format (20)](https://www.patest.cn/contests/pat-a-practise/1001)                      | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/Advanced/A1001.java) |                    |
+| 1008 |  [Elevator (20)](https://www.patest.cn/contests/pat-a-practise/1008)                      | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/Advanced/A1008.java) |                    |
+| 10 |  [](https://www.patest.cn/contests/pat-a-practise/10)                      | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/Advanced/A10.java) |                    |
+
+
+
 [PAT (Basic Level) Practise （中文）](https://www.patest.cn/contests/pat-b-practise)
 
 |  ID  | Title                               |                Java                | 备注                       |
@@ -76,4 +85,5 @@
 | 1069 |  [微博转发抽奖(20)](https://www.patest.cn/contests/pat-b-practise/1069)                      | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/BasicLevel/P1069.java) |                    |
 | 1070 |  [结绳(25)](https://www.patest.cn/contests/pat-b-practise/1070)                      | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/BasicLevel/P1070.java) |                    |
 #| 10 |  [](https://www.patest.cn/contests/pat-b-practise/10)                      | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/BasicLevel/P10.java) |                    |
+
 

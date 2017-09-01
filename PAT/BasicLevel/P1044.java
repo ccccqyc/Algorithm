@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 /**
- * 测试点2没通过,不知道哪里错了..
+ * all pass.
  * Created by q on 17-8-31.
  */
 public class P1044 {
@@ -80,6 +80,9 @@ public class P1044 {
                 stringBuilder.append(map1.get(residue));
             }
             break;
+        }
+        if (quotient == 0 && residue == 0) {
+            stringBuilder.append(map1.get(0));
         }
         return stringBuilder.toString();
     }

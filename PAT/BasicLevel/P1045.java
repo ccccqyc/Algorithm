@@ -20,6 +20,7 @@ public class P1045 {
         scanner.close();
 
         boolean b = true;
+        //使用Set防止相同数字,重复添加进入list
         Set<Integer> list = new HashSet<>();
         for (int i = 0; i < length; i++) {
             for (int j = i; j > 0; j--) {
@@ -39,6 +40,7 @@ public class P1045 {
             }
         }
 
+        //不支持排序
         Object[] o = list.toArray();
         int size = list.size();
         System.out.println(size);

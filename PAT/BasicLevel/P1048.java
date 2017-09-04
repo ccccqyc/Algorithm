@@ -27,7 +27,7 @@ public class P1048 {
                 b = Integer.parseInt(String.valueOf(s1.charAt(i)));
             }
             if (i % 2 == 0) {
-                switch ((a + b) % 13) {
+                switch (a + b) {
                     case 10: {
                         c = "J";
                         break;

@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 /**
  * 不知道 哪里错了...
+ * 3,5测试点过不了.
+ * 4测试点内存超限.
  * Created by q on 17-9-4.
  */
 public class P1068 {
@@ -10,7 +12,6 @@ public class P1068 {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
         int tol = scanner.nextInt();
-//        scanner.nextLine();
         int[][] ints = new int[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -28,7 +29,6 @@ public class P1068 {
         for (int i = 1; i < m - 1; i++) {
             d:
             for (int j = 1; j < n - 1; j++) {
-
                 for (int k = -1; k <= 1; k++) {
                     for (int g = -1; g <= 1; g++) {
                         if (ints[i][j] - ints[i + k][j + g] <= tol && (k != 0 && g != 0)) {
@@ -44,7 +44,6 @@ public class P1068 {
                 coordinateX = i;
                 coordinateY = j;
                 num = ints[i][j];
-
             }
         }
 

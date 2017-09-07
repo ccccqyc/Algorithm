@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * 测试点4超时..
+ * Java一向如此
  * Created by q on 17-9-7.
  */
 public class P1033 {

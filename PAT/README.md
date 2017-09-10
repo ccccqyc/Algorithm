@@ -1,4 +1,4 @@
-![logo](/home/q/Downloads/logo.png)
+![logo](https://github.com/ccccqyc/Algorithm/blob/master/image/PATlogo.png)
 
 [PATest](https://www.patest.cn/contests)
 

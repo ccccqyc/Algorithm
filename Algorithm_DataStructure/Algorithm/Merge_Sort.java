@@ -6,7 +6,7 @@ import java.util.Arrays;
  */
 public class Merge_Sort {
     public static void main(String[] args) {
-        int[] ints = {1, 3, 4, 5,  8, 0, 6, 9, 7};
+        int[] ints = {1, 3, 4, 2, 5, 8, 0, 6, 9, 7};
         mergeSort(ints);
         for (int anInt : ints) {
             System.out.print(anInt + " ");

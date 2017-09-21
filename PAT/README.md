@@ -9,6 +9,7 @@
 | 1001 | [A+B Format (20)](https://www.patest.cn/contests/pat-a-practise/1001) | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/Advanced/A1001.java) |      |
 | 1008 | [Elevator (20)](https://www.patest.cn/contests/pat-a-practise/1008) | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/Advanced/A1008.java) |      |
 | 1064 | [Complete Binary Search Tree (30)](https://www.patest.cn/contests/pat-a-practise/1064) | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/Advanced/A1064.java) |   BST   |
+| 1027 | [Colors in Mars (20)](https://www.patest.cn/contests/pat-a-practise/1027) | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/Advanced/A1027.java) |   进制转换   |
 |  10  | [](https://www.patest.cn/contests/pat-a-practise/10) | [题解](https://github.com/ccccqyc/Algorithm/blob/master/PAT/Advanced/A10.java) |      |
 
 

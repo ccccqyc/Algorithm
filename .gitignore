@@ -3,3 +3,6 @@
 .gitignore
 *.xml
 *.iml
+*.class
+*.prefs
+*.exe

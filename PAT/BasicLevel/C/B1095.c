@@ -7,7 +7,7 @@ int main(int argc, char const *argv[])
     int stus[2][stu], coms[2][com];
     for (i = 0; i < stu; i++)
     {
-        
+            
     }
 
     return 0;

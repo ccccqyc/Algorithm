@@ -3,3 +3,6 @@ PAT.iml
 test/
 .class
 src/
+*.exe
+*.out
+.vscode

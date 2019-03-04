@@ -5,7 +5,8 @@
             "includePath": [
                 "${workspaceRoot}",
                 "D:/Software/MinGW/lib/**",
-                "D:/Software/MinGW/mingw32/lib/**"
+                "D:/Software/MinGW/mingw32/lib/**",
+                "D:/Software/MinGW/include"
             ],
             "defines": [
                 "_DEBUG",
@@ -16,10 +17,10 @@
             "intelliSenseMode": "msvc-x64",
             "browse": {
                 "path": [
-                "${workspaceRoot}",
-                "D:/Software/MinGW/lib/**",
-                "D:/Software/MinGW/mingw32/lib/**",
-                "D:/Software/MinGW/include"
+                    "${workspaceRoot}",
+                    "D:/Software/MinGW/lib/**",
+                    "D:/Software/MinGW/mingw32/lib/**",
+                    "D:/Software/MinGW/include"
                 ]
             },
             "limitSymbolsToIncludedHeaders": true,

@@ -14,3 +14,11 @@ int main()
 
     return 0;
 }
+
+int even( int n ){
+	if(n<0){
+		n = -n;
+	}
+	
+	return n%2-1;
+}

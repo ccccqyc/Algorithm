@@ -50,20 +50,45 @@ int blsorts(ElementType B[], int M)
 int shellSorts(ElementType B[], int M)
 {
 	int i, j, d;
+	ElementType temp;
 	for (d = M / 2; d >= 1; d = d / 2)
 	{
-		for (i = d + 1; i <= M; i++)
+		for (i = d; i < M; i++)
 		{
-			B[0] = B[i];
-			j = i - d;
-			while (j > 0 && B[0] < B[j])
+			temp = B[i];
+
+			for (j = i; i >= d; j++)
 			{
-				B[j + d] = B[j];
-				j = j - d;
+				if (temp < B[j - d])
+				{
+					B[j] = B[j - d];
+				}
+				else
+				{
+					break;
+				}
 			}
-			B[j + d] = B[0];
+			B[j] = temp;
 		}
 	}
 
 	return 1;
 }
+
+int inserttionSorts(ElementType B[], int M)
+{
+	int i, j, temp;
+	for (i = 1; i < M; i++)
+	{
+		j = i;
+		while (j >= 0 && B[j] < B[j - 1])
+		{
+			temp = B[j];
+			B[j] = B[j - 1];
+			B[j - 1] = temp;
+			j--;
+		}
+	}
+}
+
+

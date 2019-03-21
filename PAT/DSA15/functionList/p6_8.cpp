@@ -77,4 +77,4 @@ int GetHeight(BinTree BT) {
 
         return LH > RH ? ++LH : ++RH;
     }
-}
+}  

@@ -1,6 +1,9 @@
 #include <stdio.h>
 
 int main() {
+    // temp * numbers
+    // i 单边行数
+    // j,k the temp num
     int a, count = 0, i = 0, temp = 0, j, k;
     char c;
     scanf("%d %c", &a, &c);
@@ -28,13 +31,13 @@ int main() {
         for (k = i - j; k > 0; k--) {
             printf(" ");
         }
-        for (k = 2 * (i - j) - 1; k <= i; k++) {
+        for (k = 1; k <= 2*j-1; k++) {
             printf("%c", c);
         }
         printf("\n");
     }
 
-    printf("%d", (a - 2 * i * i + 1));
+    printf("%d", (a - temp));
 
     return 0;
 }

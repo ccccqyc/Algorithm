@@ -7,3 +7,4 @@ src/
 *.out
 .vscode
 temp*.cpp
+temp*.c

@@ -23,8 +23,6 @@
                     "D:/Software/MinGW/include"
                 ]
             },
-            "limitSymbolsToIncludedHeaders": true,
-            "databaseFilename": "",
             "compilerPath": "D:\\Software\\MinGW\\bin\\gdb.exe",
             "cStandard": "c99",
             "cppStandard": "c++11"

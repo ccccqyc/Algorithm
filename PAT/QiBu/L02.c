@@ -12,7 +12,7 @@ int main() {
     printf("%d", count);
     return 0;
 }
-int isPrimePro(int num) {
+int isPrimePro(int num) {       
     int i, isprime = 1;
     if (num < 1) {
         isprime = 0;

@@ -1,12 +1,10 @@
 /**
- * Bubble Sort
- * 冒泡排序.
- * Created by q on 17-9-11.
+ * Bubble Sort 冒泡排序. Created by q on 17-9-11.
  */
 
 public class Bubble_Sort {
     public static void main(String[] args) {
-        int[] ints = {1, 3, 4, 5, 8, 0, 6, 9, 7};
+        int[] ints = { 1, 3, 4, 5, 8, 0, 6, 9, 7 };
         bubbleSort(ints);
         for (int anInt : ints) {
             System.out.print(anInt + " ");

@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+=======
+import java.io.IOException;
+import java.math.BigInteger;
+import java.util.Scanner;
+>>>>>>> 27e378338e34acecbc9944690ea1b820008a2d22
 
 /**
  * Created by q on 17-8-21.
  */
 public class P1017 {
     public static void main(String[] args) throws IOException {
+<<<<<<< HEAD
         BufferedReader bufferedReader =
                 new BufferedReader(new InputStreamReader(System.in));
         String[] strings = bufferedReader.readLine().split(" ");
@@ -50,4 +57,16 @@ public class P1017 {
         residue[1] = String.valueOf(temp % divisor);
         return residue;
     }
+=======
+        Scanner scanner = new Scanner(System.in);
+        BigInteger divisor = scanner.nextBigInteger();
+        int dividend = scanner.nextInt();
+        scanner.close();
+        System.out.println(
+                divisor.divide(BigInteger.valueOf(dividend)) + " " +
+                        divisor.mod(BigInteger.valueOf(dividend)));
+
+    }
+
+>>>>>>> 27e378338e34acecbc9944690ea1b820008a2d22
 }

@@ -7,3 +7,5 @@
 *.prefs
 *.exe
 /.vscode/*
+/.vs
+/codeup/100000582_B.cpp

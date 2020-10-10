@@ -9,3 +9,7 @@
 /.vscode/*
 /.vs
 /codeup/100000582_B.cpp
+.vscode/*
+.gitignore
+
+.vscode/c_cpp_properties.json

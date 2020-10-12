@@ -14,9 +14,13 @@ int main() {
 		sum += s1[i]-'0';
 	}
 	
-	char s2[100]={0};
-	itoa(sum,s2,10);
-	int length = strlen(s2);
+	// char s2[100]={0};
+	// itoa(sum,s2,10);
+	// int length = strlen(s2);
+	string s2 = to_string(sum);
+
+	int length = s2.length();
+
 	for(int i =0;i<length;i++){
 		printf("%s",arr[s2[i]-'0'].c_str());
 		if(i!=length-1) cout << " " ; 

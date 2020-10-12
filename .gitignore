@@ -6,10 +6,9 @@
 *.class
 *.prefs
 *.exe
-/.vscode/*
+.vscode/
 /.vs
 /codeup/100000582_B.cpp
-.vscode/*
-.gitignore
+.vscode
 
-.vscode/c_cpp_properties.json
+TEST/

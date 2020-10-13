@@ -1,20 +1,19 @@
-
 {
     "configurations": [
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**",
-                "C:/MinGW/lib",
-                "C:/MinGW/include"
+                "${workspaceFolder}/**"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            // "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:/MinGW/bin/gdb.exe"
+            "compilerPath": "C:\\MinGW\\bin\\gcc.exe",
+            "cStandard": "gnu18",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "gcc-x86"
         }
     ],
     "version": 4

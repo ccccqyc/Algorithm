@@ -3,27 +3,27 @@
 using namespace std;
 
 struct mooncake {
-    float sall;
-    int stock;
-    float price;
+    double sall;
+    double stock;
+    double price;
 };
 
 bool cmp(mooncake m1, mooncake m2) { return m1.price > m2.price; }
 int main() {
     int N;
-    float D;
-    scanf("%d %f", &N, &D);
-    mooncake mcs[N];
+    double D;
+    mooncake  mcs[1010];
+    scanf("%d %lf", &N, &D);
     for (int i = 0; i < N; i++) {
-        scanf("%d", &mcs[i].stock);
+        scanf("%lf", &mcs[i].stock);
     }
     for (int i = 0; i < N; i++) {
-        scanf("%f", &mcs[i].sall);
+        scanf("%lf", &mcs[i].sall);
         mcs[i].price = mcs[i].sall / mcs[i].stock;
     }
     sort(mcs, mcs + N, cmp);
 
-    float income = 0;
+    double income = 0;
     for (int i = 0; i < N; i++) {
         if (mcs[i].stock <= D) {
             income += mcs[i].sall;
@@ -33,7 +33,7 @@ int main() {
             break;
         }
     }
-    printf("%.2f", income);
+    printf("%.2lf", income);
 
     return 0;
 }

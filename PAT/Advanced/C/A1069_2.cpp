@@ -19,4 +19,21 @@ int to_number(int num[]) {
     return temp;
 }
 
-int main() { return 0; }
+int main() {
+    int n, MIN, MAX;
+    scanf("%d", &n);
+    int nums[5];
+
+    while (1) {
+        to_array(n, nums);
+        sort(nums, nums + 4);
+        MIN = to_number(nums);
+        sort(nums, nums + 4, cmp);
+        MAX = to_number(nums);
+        n = MAX - MIN;
+        printf("%04d - %04d = %04d\n", MAX, MIN, n);
+        if (n == 0 || n == 6174) break;
+    }
+
+    return 0;
+}

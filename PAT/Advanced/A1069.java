@@ -3,90 +3,62 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
+/**
+ * StringBuilder insert()
+ * 字符数组 字符串 相互转换
+ * chars → String
+ * str = String.valueof(chars);
+ *
+ * String → chars
+ * chars = str.toCharArray();
+ *
+ * 数组内部排序 Arrays.sort(chars);
+ *
+ */
 public class A1069 {
-	public static void main(String[] args) {
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		String str = null;
-		try {
-			str = reader.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			reader.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		while (true) {
-			str = printC(str);
-			if (str.equals("6174") || str.equals("0000")) {
-				break;
-			} else {
-				System.out.println();
-			}
-		}
+    public static void main(String[] args) {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder str = null;
+        try {
+            str = new StringBuilder(reader.readLine());
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (str != null) {
+            str.insert(0, "0000", 0, 4 - str.length());
+        }
 
-	}
+        char[] chars1;
+        char[] chars2;
+        int temp;
+        do {
+            chars1 = str.toString().toCharArray();
+            Arrays.sort(chars1);
+            chars2 = reservechar(chars1);
+            temp = Integer.parseInt(String.valueOf(chars2)) - Integer.parseInt(String.valueOf(chars1));
+            str = new StringBuilder(Integer.toString(temp));
+            str.insert(0, "0000", 0, 4 - str.length());
+            System.out.println(String.valueOf(chars2) + " - " + String.valueOf(chars1) + " = " + str.toString());
+        } while (!str.toString().equals("0000") && !str.toString().equals("6174"));
 
-	public static String printC(String str) {
-		char[] chars = str.toCharArray();
-		char[] chars2 = fill(chars);
-		Arrays.sort(chars2);
-		char[] chars1 = reservechar(chars2);
-		String s1 = charsToString(chars1);
-		String s2 = charsToString(chars2);
-		int int3 = Integer.parseInt(s1) - Integer.parseInt(s2);
-		String s3 = charsToString(fill(Integer.toString(int3).toCharArray()));
-		System.out.print(s1 + " - " + s2 + " = " + s3);
-		return s3;
+    }
 
-	}
+    /**
+     * 0012 → 2100
+     *
+     * @param chars
+     * @return
+     */
+    public static char[] reservechar(char[] chars) {
+        char temp;
+        char[] tempchars = chars.clone();
+        for (int i = 0; i < 2; i++) {
+            temp = tempchars[i];
+            tempchars[i] = tempchars[chars.length - i - 1];
+            tempchars[chars.length - i - 1] = temp;
+        }
 
-	/**
-	 * 21 → 0021
-	 * 
-	 * @param chars
-	 * @return
-	 */
-	public static char[] fill(char[] chars) {
-		char[] temp = { '0', '0', '0', '0' };
-		for (int i = 3; i > (3 - chars.length); i--) {
-			temp[i] = chars[i + chars.length - 4];
-		}
-		return temp;
-	}
-
-	/**
-	 * 0012 → 2100
-	 * 
-	 * @param chars
-	 * @return
-	 */
-	public static char[] reservechar(char[] chars) {
-		char temp;
-		char[] tempchars = chars.clone();
-		for (int i = 0; i < 2; i++) {
-			temp = tempchars[i];
-			tempchars[i] = tempchars[chars.length - i - 1];
-			tempchars[chars.length - i - 1] = temp;
-		}
-
-		return tempchars;
-	}
-
-	/**
-	 * char[] → String {'1','2','5'} → "125"
-	 * 
-	 * @param chars
-	 * @return
-	 */
-	public static String charsToString(char[] chars) {
-		StringBuilder stringBuilder = new StringBuilder();
-		for (char c : chars) {
-			stringBuilder.append(c);
-		}
-		return stringBuilder.toString();
-	}
+        return tempchars;
+    }
 }

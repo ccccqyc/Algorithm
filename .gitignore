@@ -11,5 +11,5 @@
 .vscode
 
 Test.java
-
+/target
 TEST/

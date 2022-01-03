@@ -1,5 +1,7 @@
 package normal;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -57,6 +59,9 @@ public class Solution {
 
     /**
      * 剑指 Offer 35. 复杂链表的复制
+     * T(n) = O(n^2)
+     * S(n) = O(n)
+     *
      * <p>
      * Definition for a Node.
      * class Node {
@@ -116,7 +121,28 @@ public class Solution {
             index++;
             temp3 = temp3.next;
         }
-        return (nodes.length == 0) ? null : nodes[0];
+        return (head == null) ? null : nodes[0];
+    }
+
+    /**
+     * 剑指 Offer 35. 复杂链表的复制
+     * 解法 2
+     * T(n) = O(n)
+     * S(n) = O(n)
+     *
+     * @param head
+     * @return
+     */
+    public Node copyRandomList2(Node head) {
+        Map<Node, Node> map = new HashMap<>();
+        for (Node cur = head; cur != null; cur = cur.next) {
+            map.put(cur, new Node(cur.val));
+        }
+        for (Node cur = head; cur != null; cur = cur.next) {
+            map.get(cur).random = map.get(cur.random);
+            map.get(cur).next = map.get(cur.next);
+        }
+        return (head == null) ? null : map.get(head);
     }
 
     class Node {

@@ -145,6 +145,17 @@ public class Solution {
         return (head == null) ? null : map.get(head);
     }
 
+    /**
+     * 剑指 Offer 05. 替换空格
+     *
+     * @param s
+     * @return
+     */
+    public String replaceSpace(String s) {
+        return s.replace(" ", "%20");
+    }
+
+
     class Node {
         int val;
         Node next;

@@ -3,6 +3,7 @@ package normal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
+import java.util.StringJoiner;
 
 /**
  * @author ccccqyc
@@ -155,6 +156,18 @@ public class Solution {
         return s.replace(" ", "%20");
     }
 
+    /**
+     * 剑指 Offer 58 - II. 左旋转字符串
+     *
+     * @param s
+     * @param n
+     * @return
+     */
+    public String reverseLeftWords(String s, int n) {
+        StringBuilder str  = new StringBuilder(s.substring(n));
+        str.append(s.substring(0, n));
+        return str.toString();
+    }
 
     class Node {
         int val;

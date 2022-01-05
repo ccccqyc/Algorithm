@@ -190,7 +190,27 @@ public class Solution {
         return temp;
     }
 
-
+    /**
+     * 剑指 Offer 03. 数组中重复的数字
+     * 解法二
+     * <p>
+     * T(n) = O(n)
+     * S(n) = O(1)
+     * <p>
+     */
+    public int findRepeatNumber2(int[] nums) {
+        int ret = -1, temp = 0, length = nums.length;
+        for (int i = 0; i < length; i++) {
+            temp = nums[nums[i]];
+            if (temp == nums[i]) {
+                ret = temp;
+                break;
+            }
+            nums[nums[i]] = nums[i];
+            nums[i] = temp;
+        }
+        return ret;
+    }
 
     class Node {
         int val;

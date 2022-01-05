@@ -164,10 +164,33 @@ public class Solution {
      * @return
      */
     public String reverseLeftWords(String s, int n) {
-        StringBuilder str  = new StringBuilder(s.substring(n));
-        str.append(s.substring(0, n));
+        StringBuilder str = new StringBuilder(s.substring(n));
+        str.append(s, 0, n);
         return str.toString();
     }
+
+    /**
+     * 剑指 Offer 03. 数组中重复的数字
+     * 解法一
+     * <p>
+     * T(n) = O(n)
+     * S(n) = O(n)
+     * <p>
+     */
+    public int findRepeatNumber(int[] nums) {
+        int temp = -1, length = nums.length;
+        int[] ints = new int[nums.length];
+        for (int i = 0; i < length; i++) {
+            ints[nums[i]]++;
+            if (ints[nums[i]] > 1) {
+                temp = nums[i];
+                break;
+            }
+        }
+        return temp;
+    }
+
+
 
     class Node {
         int val;

@@ -212,6 +212,31 @@ public class Solution {
         return ret;
     }
 
+    /**
+     * 剑指 Offer 53 - I. 在排序数组中查找数字 I
+     * <p>
+     * 二分查找
+     * T(n) = O(logN)
+     * S(n) = O(1)
+     */
+    public int search(int[] nums, int target) {
+        int low = 0, mid = 0, hight = nums.length - 1;
+        while (low < hight) {
+            mid = (low + hight) / 2;
+            if (nums[mid] >= target) {
+                hight = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        int count = 0;
+        while (low < nums.length && nums[low++] == target) {
+            count++;
+        }
+        return count;
+    }
+
+
     class Node {
         int val;
         Node next;

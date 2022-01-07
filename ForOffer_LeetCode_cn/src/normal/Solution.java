@@ -236,6 +236,81 @@ public class Solution {
         return count;
     }
 
+    /**
+     * 剑指 Offer 53 - II. 0～n-1中缺失的数字
+     * 解法1
+     * T(n) = O(N)
+     * S(n) = O(1)
+     */
+    public int missingNumber(int[] nums) {
+        int i = 0;
+        for (i = 0; i < nums.length; i++) {
+            if (nums[i] != i) {
+                break;
+            }
+        }
+        return i;
+    }
+
+    /**
+     * 剑指 Offer 53 - II. 0～n-1中缺失的数字
+     * 解法2 有序先想到二分查找
+     * T(n) = O(logN)
+     * S(n) = O(1)
+     */
+    public int missingNumber2(int[] nums) {
+        int i = 0;
+        int low = 0, high = nums.length - 1, mid = 0;
+        while (low < high) {
+            mid = (high + low) / 2;
+            if (mid < nums[mid]) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return i;
+    }
+
+    /**
+     * 剑指 Offer 04. 二维数组中的查找
+     * T(n) = O(N^2)
+     * S(n) = O(1)
+     */
+    public boolean findNumberIn2DArray(int[][] matrix, int target) {
+        boolean ret = false;
+        if (matrix.length == 0) {
+            return ret;
+        }
+        int row = matrix.length, clo = matrix[0].length;
+        c:
+        for (int i = clo - 1; i >= 0; i--) {
+            for (int j = 0; j < row; j++) {
+                if (target > matrix[j][i]) {
+                    continue;
+                } else if (target < matrix[j][i]) {
+                    break;
+                } else {
+                    ret = true;
+                    break c;
+                }
+
+            }
+        }
+        return ret;
+    }
+
+    /**
+     * 剑指 Offer 50. 第一个只出现一次的字符
+     * T(n) = O(logN)
+     * S(n) = O(1)
+     */
+    public char firstUniqChar(String s) {
+        char c = ' ';
+
+
+        return c;
+    }
 
     class Node {
         int val;

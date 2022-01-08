@@ -460,6 +460,31 @@ public class Solution {
         return A.val == B.val && dfs(A.left, B.left) && dfs(A.right, B.right);
     }
 
+    /**
+     * 剑指 Offer 27. 二叉树的镜像
+     * <p>
+     * 递归
+     * T(n) = O(n)
+     * S(n) = O(1)
+     */
+    public TreeNode mirrorTree(TreeNode root) {
+        mirror(root);
+        return root;
+    }
+
+    public void mirror(TreeNode root) {
+        if (root == null) {
+            return;
+        } else {
+            TreeNode temp = root.left;
+            root.left = root.right;
+            root.right = temp;
+        }
+        mirror(root.left);
+        mirror(root.right);
+    }
+
+
     public class TreeNode {
         int val;
         TreeNode left;

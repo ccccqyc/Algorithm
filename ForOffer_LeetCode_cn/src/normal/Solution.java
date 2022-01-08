@@ -436,6 +436,30 @@ public class Solution {
         return retlist;
     }
 
+    /**
+     * 剑指 Offer 26. 树的子结构
+     * 前序递归
+     * <p>
+     * T(n) = O(n*m)
+     * S(n) = O(1)
+     */
+    public boolean isSubStructure(TreeNode A, TreeNode B) {
+        if (A == null || B == null) {
+            return false;
+        }
+        return dfs(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
+    }
+
+    public boolean dfs(TreeNode A, TreeNode B) {
+        if (B == null) {
+            return true;
+        }
+        if (A == null) {
+            return false;
+        }
+        return A.val == B.val && dfs(A.left, B.left) && dfs(A.right, B.right);
+    }
+
     public class TreeNode {
         int val;
         TreeNode left;

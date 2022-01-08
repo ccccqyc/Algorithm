@@ -302,14 +302,26 @@ public class Solution {
 
     /**
      * 剑指 Offer 50. 第一个只出现一次的字符
-     * T(n) = O(logN)
-     * S(n) = O(1)
+     * T(n) = O(n)
+     * S(n) = O(n)
      */
     public char firstUniqChar(String s) {
-        char c = ' ';
+        char ret = ' ', tempc = ' ';
+        Map<Character, Integer> map = new HashMap<>();
 
+        for (int i = 0; i < s.length(); i++) {
+            tempc = s.charAt(i);
+            map.put(tempc, map.getOrDefault(tempc, 0) + 1);
+        }
 
-        return c;
+        for (int i = 0; i < s.length(); i++) {
+            tempc = s.charAt(i);
+            if (map.get(tempc) == 1) {
+                ret = tempc;
+                break;
+            }
+        }
+        return ret;
     }
 
     class Node {

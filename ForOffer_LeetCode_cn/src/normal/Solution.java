@@ -516,7 +516,7 @@ public class Solution {
     /**
      * 剑指 Offer 28. 对称的二叉树
      * <p>
-     * 递归
+     * 非递归
      * T(n) = O(n^2)
      * S(n) = O(n)
      */
@@ -563,6 +563,26 @@ public class Solution {
         return ret;
     }
 
+    /**
+     * 剑指 Offer 28. 对称的二叉树
+     * <p>
+     * 递归
+     * T(n) = O(n^2)
+     * S(n) = O(n)
+     */
+    public boolean isSymmetricII(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        return isSymmerichelp(root.left, root.right);
+    }
+
+    public boolean isSymmerichelp(TreeNode node1, TreeNode node2) {
+        if (node1 == null || node2 == null) {
+            return node1 == node2;
+        }
+        return node1.val == node2.val && isSymmerichelp(node1.left, node2.right) && isSymmerichelp(node1.right, node2.left);
+    }
 
     public class TreeNode {
         int val;

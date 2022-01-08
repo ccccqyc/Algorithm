@@ -484,6 +484,36 @@ public class Solution {
         mirror(root.right);
     }
 
+    /**
+     * 剑指 Offer 27. 二叉树的镜像II
+     * <p>
+     * 递归
+     * T(n) = O(n)
+     * S(n) = O(1)
+     */
+    public TreeNode mirrorTreeII(TreeNode root) {
+        if (root == null) {
+            return root;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        TreeNode temp, node;
+        while (!queue.isEmpty()) {
+            temp = queue.poll();
+            node = temp.left;
+            temp.left = temp.right;
+            temp.right = node;
+            if (temp.right != null) {
+                queue.add(temp.right);
+            }
+            if (temp.left != null) {
+                queue.add(temp.left);
+            }
+        }
+        return root;
+    }
+
+
 
     public class TreeNode {
         int val;

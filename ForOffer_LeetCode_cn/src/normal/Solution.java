@@ -397,6 +397,45 @@ public class Solution {
         return retlist;
     }
 
+    /**
+     * 剑指 Offer 32 - III. 从上到下打印二叉树 III
+     * T(n) = O(n)
+     * S(n) = O(1)
+     */
+    public List<List<Integer>> levelOrderIII(TreeNode root) {
+        List<List<Integer>> retlist = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode node;
+        List<Integer> tempList;
+        int count, row = 0;
+
+        if (root != null) {
+            queue.add(root);
+        }
+
+        while (!queue.isEmpty()) {
+            tempList = new LinkedList<>();
+            count = queue.size();
+            row ^= 1;
+            while (count != 0) {
+                node = queue.poll();
+                tempList.add(node.val);
+                count--;
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            if (row == 0) {
+                Collections.reverse(tempList);
+            }
+            retlist.add(tempList);
+        }
+        return retlist;
+    }
+
     public class TreeNode {
         int val;
         TreeNode left;

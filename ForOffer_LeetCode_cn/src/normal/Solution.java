@@ -364,6 +364,39 @@ public class Solution {
         return integerList.stream().mapToInt(Integer::intValue).toArray();
     }
 
+    /**
+     * 剑指 Offer 32 - II. 从上到下打印二叉树 II
+     * T(n) = O(n)
+     * S(n) = O(1)
+     */
+    public List<List<Integer>> levelOrderII(TreeNode root) {
+        List<List<Integer>> retlist = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode node;
+        List<Integer> tempList;
+        int count;
+        if (root != null) {
+            queue.add(root);
+        }
+        while (!queue.isEmpty()) {
+            tempList = new LinkedList<>();
+            count = queue.size();
+            while (count != 0) {
+                node = queue.poll();
+                tempList.add(node.val);
+                count--;
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
+            }
+            retlist.add(tempList);
+        }
+        return retlist;
+    }
+
     public class TreeNode {
         int val;
         TreeNode left;

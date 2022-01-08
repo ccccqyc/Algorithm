@@ -513,6 +513,55 @@ public class Solution {
         return root;
     }
 
+    /**
+     * 剑指 Offer 28. 对称的二叉树
+     * <p>
+     * 递归
+     * T(n) = O(n^2)
+     * S(n) = O(n)
+     */
+    public boolean isSymmetric(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        boolean ret = true;
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<TreeNode> treeNodeList = new ArrayList<>();
+        TreeNode node, temp1, temp2;
+        int count = 0, length = 0;
+        queue.add(root);
+        c:
+        while (!queue.isEmpty()) {
+            count = queue.size();
+            while (count != 0) {
+                node = queue.poll();
+                treeNodeList.add(node);
+                count--;
+                if (node != null) {
+                    queue.add(node.left);
+                    queue.add(node.right);
+                }
+            }
+            length = treeNodeList.size();
+            for (int i = 0; i < length / 2; i++) {
+                temp1 = treeNodeList.get(i);
+                temp2 = treeNodeList.get(length - 1 - i);
+                if (temp1 == null || temp2 == null) {
+                    if (temp1 != temp2) {
+                        ret = false;
+                        break c;
+                    }
+                    continue;
+                }
+                if (temp1.val != temp2.val) {
+                    ret = false;
+                    break c;
+                }
+            }
+            treeNodeList.clear();
+        }
+        return ret;
+    }
 
 
     public class TreeNode {

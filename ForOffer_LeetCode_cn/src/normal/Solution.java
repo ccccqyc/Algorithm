@@ -361,7 +361,6 @@ public class Solution {
                 queue.add(node.right);
             }
         }
-
         return integerList.stream().mapToInt(Integer::intValue).toArray();
     }
 

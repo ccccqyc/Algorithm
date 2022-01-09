@@ -584,6 +584,30 @@ public class Solution {
         return node1.val == node2.val && isSymmerichelp(node1.left, node2.right) && isSymmerichelp(node1.right, node2.left);
     }
 
+    /**
+     * 剑指 Offer 63. 股票的最大利润
+     * T(n) = O(n)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-09 19:51:28
+     */
+    public int maxProfit(int[] prices) {
+        if (prices.length <= 1 || prices == null) {
+            return 0;
+        }
+
+        int indexMax = 0, indexMin = 0, res = 0, min = prices[0];
+        for (int i = 0; i < prices.length; i++) {
+            if (prices[i] < min) {
+                min = prices[i];
+            } else {
+                res = Math.max(res, prices[i] - min);
+            }
+        }
+        return res;
+    }
+
+
     public class TreeNode {
         int val;
         TreeNode left;

@@ -607,6 +607,25 @@ public class Solution {
         return res;
     }
 
+    /**
+     * 剑指 Offer 10- II. 青蛙跳台阶问 题
+     * T(n) = O(n)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-09 20:19:33
+     */
+    public int numWays(int n) {
+        if (n <= 1) {
+            return 1;
+        }
+        int[] ints = new int[n + 1];
+        ints[0] = 1;
+        ints[1] = 1;
+        for (int i = 2; i < n + 1; i++) {
+            ints[i] = (ints[i - 1] + ints[i - 2]) % 1000000007;
+        }
+        return ints[n];
+    }
 
     public class TreeNode {
         int val;

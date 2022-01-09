@@ -627,6 +627,28 @@ public class Solution {
         return ints[n];
     }
 
+    /**
+     * 剑指 Offer 10- I. 斐波那契数列
+     * T(n) = O(n)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-09 20:54:31
+     */
+    public int fib(int n) {
+        if (n < 2) {
+            return n;
+        }
+
+        int[] ints = new int[n + 1];
+        ints[0] = 0;
+        ints[1] = 1;
+        for (int i = 0; i < n + 1; i++) {
+            ints[i] = (ints[i - 1] + ints[i - 2]) % 1000000007;
+        }
+        return ints[n];
+    }
+
+
     public class TreeNode {
         int val;
         TreeNode left;

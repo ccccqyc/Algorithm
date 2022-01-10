@@ -677,10 +677,19 @@ public class Solution {
      * 动态规划
      * <p>
      * T(n) = O(n)
-     * S(n) = O(1)
+     * S(n) = O(n)
+     *
+     * @since 2022-01-10 10:22:01
      */
     public int maxValue(int[][] grid) {
-        return 0;
+        int rowlength = grid.length, clomnlength = grid[0].length;
+        int[] dp = new int[clomnlength + 1];
+        for (int i = 1; i <= rowlength; i++) {
+            for (int j = 1; j <= clomnlength; j++) {
+                dp[j] = Math.max(dp[j], dp[j - 1]) + grid[i - 1][j - 1];
+            }
+        }
+        return dp[rowlength];
     }
 
     public class TreeNode {

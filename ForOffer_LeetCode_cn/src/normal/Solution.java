@@ -648,6 +648,40 @@ public class Solution {
         return ints[n];
     }
 
+    /**
+     * 剑指 Offer 42. 连续子数组的最大和
+     * 动态规划.
+     * <p>
+     * T(n) = O(n)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-10 08:30:29
+     */
+    public int maxSubArray(int[] nums) {
+        int[] dp = new int[nums.length + 1];
+        dp[0] = nums[0];
+        int max = dp[0];
+
+        // dp[i] i子序列最优解
+        // max_i 子序列最优解
+
+        for (int i = 1; i < nums.length; i++) {
+            dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
+            max = Math.max(max, dp[i]);
+        }
+        return max;
+    }
+
+    /**
+     * 剑指 Offer 47. 礼物的最大价值
+     * 动态规划
+     * <p>
+     * T(n) = O(n)
+     * S(n) = O(1)
+     */
+    public int maxValue(int[][] grid) {
+        return 0;
+    }
 
     public class TreeNode {
         int val;

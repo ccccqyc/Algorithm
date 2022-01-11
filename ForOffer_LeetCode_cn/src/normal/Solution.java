@@ -608,7 +608,7 @@ public class Solution {
     }
 
     /**
-     * 剑指 Offer 10- II. 青蛙跳台阶问 题
+     * 剑指 Offer 10- II. 青蛙跳台阶问题
      * T(n) = O(n)
      * S(n) = O(1)
      *
@@ -692,6 +692,36 @@ public class Solution {
         return dp[rowlength];
     }
 
+    /**
+     * 剑指 Offer 46. 把数字翻译成字符串
+     *  青蛙跳抽象版.
+     *
+     * T(n) = O(n)
+     * S(n) = O(n)
+     * 
+     * @since 2022-01-11 19:06:51
+     */
+    public int translateNum(int num) {
+        if (num < 10) {
+            return 1;
+        }
+
+        String numStr = String.valueOf(num);
+        int[] dp = new int[numStr.length() + 1];
+        dp[0] = dp[1] = 1;
+        String strtemp;
+
+        for (int i = 2; i < dp.length; i++) {
+            strtemp = numStr.substring(i - 2, i);
+            if (Integer.valueOf(strtemp) < 26 && Integer.valueOf(strtemp) >= 10) {
+                dp[i] = dp[i - 1] + dp[i - 2];
+            } else {
+                dp[i] = dp[i - 1];
+            }
+        }
+
+        return dp[dp.length - 1];
+    }
 
 
     public class TreeNode {

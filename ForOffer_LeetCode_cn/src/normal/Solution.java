@@ -694,11 +694,11 @@ public class Solution {
 
     /**
      * 剑指 Offer 46. 把数字翻译成字符串
-     *  青蛙跳抽象版.
-     *
+     * 青蛙跳抽象版.
+     * <p>
      * T(n) = O(n)
      * S(n) = O(n)
-     * 
+     *
      * @since 2022-01-11 19:06:51
      */
     public int translateNum(int num) {
@@ -721,6 +721,41 @@ public class Solution {
         }
 
         return dp[dp.length - 1];
+    }
+
+    /**
+     * 剑指 Offer 48. 最长不含重复字符的子字符串
+     * 动态规划.
+     * <p>
+     * T(n) = O(n^2)
+     * S(n) = O(n)
+     *
+     * @since 2022-01-11 20:36:29
+     */
+    public int lengthOfLongestSubstring(String s) {
+        if (s == null) {
+            return 0;
+        } else if (s.length() <= 1) {
+            return s.length();
+        }
+        int[] dp = new int[s.length() + 1];
+        dp[0] = 1;
+        int max = 1, index = 0;
+        String strtemp;
+        char chartemp;
+        for (int i = 1; i < s.length(); i++) {
+            strtemp = s.substring(i - dp[i - 1], i);
+            chartemp = s.charAt(i);
+            index = strtemp.indexOf(chartemp);
+            if (index == -1) {
+                dp[i] = dp[i - 1] + 1;
+            } else {
+                dp[i] = dp[i - 1] - index;
+            }
+            max = (max < dp[i]) ? dp[i] : max;
+        }
+
+        return max;
     }
 
 

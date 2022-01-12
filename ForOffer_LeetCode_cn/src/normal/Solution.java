@@ -758,6 +758,37 @@ public class Solution {
         return max;
     }
 
+    /**
+     * 剑指 Offer 22. 链表中倒数第k个节点
+     * 双指针
+     * <p>
+     * T(n) = O(n)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-12 08:27:25
+     */
+    public ListNode getKthFromEnd(ListNode head, int k) {
+        int count = 0;
+        ListNode index1 = head, index2 = head;
+        while (index1 != null) {
+            count++;
+            index1 = index1.next;
+        }
+        index1 = head;
+        if (k > count) {
+            return null;
+        }
+
+        for (int i = 1; i < k; i++) {
+            index2 = index2.next;
+        }
+        while (index2.next != null) {
+            index1 = index1.next;
+            index2 = index2.next;
+        }
+
+        return index1;
+    }
 
     public class TreeNode {
         int val;

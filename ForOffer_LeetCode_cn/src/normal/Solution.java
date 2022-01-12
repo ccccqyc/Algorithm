@@ -790,6 +790,36 @@ public class Solution {
         return index1;
     }
 
+    /**
+     * 剑指 Offer 18. 删除链表的节点
+     * 双指针
+     * <p>
+     * T(n) = O(n)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-12 08:50:06
+     */
+    public ListNode deleteNode(ListNode head, int val) {
+        if (head == null) {
+            return head;
+        }
+        if (head.val == val) {
+            return head.next;
+        }
+        ListNode temp1 = head, temp2 = head.next;
+        while (temp2 != null) {
+            if (temp2.val == val) {
+                temp1.next = temp2.next;
+                break;
+            }
+            temp1 = temp1.next;
+            temp2 = temp2.next;
+        }
+
+        return head;
+    }
+
+
     public class TreeNode {
         int val;
         TreeNode left;

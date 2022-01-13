@@ -862,6 +862,58 @@ public class Solution {
         return ret;
     }
 
+    /**
+     * 剑指 Offer 52. 两个链表的第一个公共节点
+     * <p>
+     * T(n) = O(max(m,n))
+     * S(n) = O(1)
+     *
+     * @since 2022-01-13 20:14:21
+     */
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        int countA = 0, countB = 0;
+        ListNode temp = headA;
+        while (temp != null) {
+            countA++;
+            temp = temp.next;
+        }
+        temp = headB;
+        while (temp != null) {
+            countB++;
+            temp = temp.next;
+        }
+        int c = 0;
+        if (countA < countB) {
+            c = countA;
+            countA = countB;
+            countB = c;
+
+            temp = headA;
+            headA = headB;
+            headB = temp;
+        }
+        c = countA - countB;
+        while (c != 0) {
+            c--;
+            headA = headA.next;
+        }
+        temp = null;
+        while (headA != null) {
+            if (headB == headA) {
+                temp = headA;
+                break;
+            } else {
+                headB = headB.next;
+                headA = headA.next;
+            }
+        }
+
+        return temp;
+    }
+
     static class ListNode {
         int val;
         ListNode next;

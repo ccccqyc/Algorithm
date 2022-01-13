@@ -914,6 +914,29 @@ public class Solution {
         return temp;
     }
 
+    /**
+     * 剑指 Offer 52. 两个链表的第一个公共节点
+     * <p>
+     * 解法二
+     * <p>
+     * T(n) = O(max(m,n))
+     * S(n) = O(1)
+     *
+     * @since 2022-01-13 20:38:48
+     */
+    public ListNode getIntersectionNodeII(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        ListNode n1 = headA, n2 = headB;
+        while (n1 != n2) {
+            n1 = n1 == null ? headB : n1.next;
+            n2 = n2 == null ? headA : n2.next;
+        }
+
+        return n1;
+    }
+
     static class ListNode {
         int val;
         ListNode next;

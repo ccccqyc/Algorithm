@@ -819,6 +819,57 @@ public class Solution {
         return head;
     }
 
+    /**
+     * 剑指 Offer 25. 合并两个排序的链表
+     * T(n) = O(n+m)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-13 19:09:11
+     */
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+
+        ListNode temp;
+        if (l2 != null && l1.val > l2.val) {
+            temp = l2;
+            l2 = l1;
+            l1 = temp;
+        }
+        ListNode ret = l1;
+
+        while (l2 != null) {
+            if (l1.val <= l2.val) {
+                if (l1.next == null) {
+                    l1.next = l2;
+                    break;
+                }
+                if (l1.next.val <= l2.val) {
+                    l1 = l1.next;
+                } else {
+                    temp = l1.next;
+                    l1.next = l2;
+                    l2 = l2.next;
+                    l1.next.next = temp;
+                }
+            } else {
+                temp = l2;
+                l2 = l1;
+                l1 = temp;
+            }
+        }
+        return ret;
+    }
+
+    static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int x) {
+            this.val = x;
+        }
+    }
 
     public class TreeNode {
         int val;
@@ -839,15 +890,6 @@ public class Solution {
             this.val = val;
             this.next = null;
             this.random = null;
-        }
-    }
-
-    private class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            this.val = x;
         }
     }
 

@@ -964,7 +964,32 @@ public class Solution {
         return nums;
     }
 
+    /**
+     * 剑指 Offer 57. 和为s的两个数字
+     * 使用双指针特点,数组有序,求和
+     *
+     * <p>
+     * T(n) = O(n)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-14 09:32:39
+     */
+    public int[] twoSum(int[] nums, int target) {
+        int[] ret = new int[]{};
+        int left = 0, right = nums.length-1;
+        while (left < right) {
+            if (nums[left] + nums[right] == target) {
+                ret = new int[]{nums[left], nums[right]};
+                break;
+            } else if (nums[left] + nums[right] < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
 
+        return ret;
+    }
 
     static class ListNode {
         int val;

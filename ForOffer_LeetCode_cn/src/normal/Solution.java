@@ -976,7 +976,7 @@ public class Solution {
      */
     public int[] twoSum(int[] nums, int target) {
         int[] ret = new int[]{};
-        int left = 0, right = nums.length-1;
+        int left = 0, right = nums.length - 1;
         while (left < right) {
             if (nums[left] + nums[right] == target) {
                 ret = new int[]{nums[left], nums[right]};
@@ -989,6 +989,28 @@ public class Solution {
         }
 
         return ret;
+    }
+
+    /**
+     * 剑指 Offer 58 - I. 翻转单词顺序
+     * <p>
+     * T(n) = O(n)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-14 12:03:58
+     */
+    public String reverseWords(String s) {
+        s = s.trim();
+        String[] strings = s.split(" ");
+        StringBuilder stringJoiner = new StringBuilder();
+        String temp;
+        for (int i = strings.length - 1; i >= 0; i--) {
+            temp = strings[i].trim();
+            if (!temp.equals("")) {
+                stringJoiner.append(temp).append(" ");
+            }
+        }
+        return stringJoiner.toString().trim();
     }
 
     static class ListNode {

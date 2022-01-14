@@ -937,6 +937,35 @@ public class Solution {
         return n1;
     }
 
+    /**
+     * 剑指 Offer 21. 调整数组顺序使奇数位于偶数前面
+     * <p>
+     * 双指针
+     * T(n) = O(n)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-14 09:07:38
+     */
+    public int[] exchange(int[] nums) {
+        int left = 0, right = nums.length - 1, temp;
+        while (left < right) {
+            if (nums[left] % 2 == 1) {
+                left++;
+            } else if (nums[right] % 2 == 0) {
+                right--;
+            } else {
+                temp = nums[left];
+                nums[left] = nums[right];
+                nums[right] = temp;
+                left++;
+                right--;
+            }
+        }
+        return nums;
+    }
+
+
+
     static class ListNode {
         int val;
         ListNode next;

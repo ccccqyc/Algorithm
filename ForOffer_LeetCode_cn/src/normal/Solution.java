@@ -1013,12 +1013,80 @@ public class Solution {
         return stringJoiner.toString().trim();
     }
 
+    /**
+     * 剑指 Offer 12. 矩阵中的路径
+     * 回溯
+     * <p>
+     * T(n) = O(n)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-15 10:06:16
+     */
+    public boolean exist(char[][] board, String word) {
+        if (board == null || word.equals("")) {
+            return false;
+        }
+
+        int row = board.length, clomn = board[0].length, index = 0;
+        Stack<Position> stack = new Stack();
+        Queue<Position> queue = new LinkedList();
+
+        Position positionTemp;
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < clomn; j++) {
+                if (board[i][j] == word.charAt(0)) {
+                    stack.push(new Position(i, j));
+                }
+            }
+        }
+
+        while (!stack.empty()) {
+            positionTemp = stack.pop();
+
+        }
+
+        return false;
+    }
+
+    /**
+     * 剑指 Offer 13. 机器人的运动范围
+     * 回溯,深度优先算法
+     * 深度优先 - 递归实现
+     * <p>
+     * T(n) = O(n*m)
+     * S(n) = O(m*n)
+     *
+     * @since 2022-01-15 10:56:55
+     */
+    public int movingCount(int m, int n, int k) {
+        boolean[][] visit = new boolean[m][n];
+        return DFSmovingCount(m, n, 0, 0, k, visit);
+    }
+
+    public int DFSmovingCount(int m, int n, int i, int j, int k, boolean[][] visit) {
+        if (i >= m || j >= n || visit[i][j] || (i % 10 + i / 10 + j % 10 + j / 10) > k) {
+            return 0;
+        }
+        visit[i][j] = true;
+        return 1 + DFSmovingCount(m, n, i, j + 1, k, visit) + DFSmovingCount(m, n, i + 1, j, k, visit);
+    }
+
     static class ListNode {
         int val;
         ListNode next;
 
         ListNode(int x) {
             this.val = x;
+        }
+    }
+
+    class Position {
+        int x;
+        int y;
+
+        Position(int x, int y) {
+            this.x = x;
+            this.y = y;
         }
     }
 

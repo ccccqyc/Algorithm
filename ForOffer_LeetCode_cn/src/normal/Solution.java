@@ -1121,6 +1121,43 @@ public class Solution {
 
     }
 
+    /**
+     * 剑指 Offer 36. 二叉搜索树与双向链表
+     * 二叉搜索树,构造双向链表
+     * <p>
+     * T(n) = O(K)
+     * S(n) = O(1)
+     */
+    public TreeNode treeToDoublyList(TreeNode root) {
+        if (root == null) {
+            return null;
+        }
+        Queue<TreeNode> stack = new LinkedList<>();
+        treeToDoublyListHelper(root, stack);
+        TreeNode head = stack.poll(), temp = head;
+        while (!stack.isEmpty()) {
+            temp.right = stack.poll();
+            temp.right.left = temp;
+            temp = temp.right;
+        }
+        temp.right = head;
+        head.left = temp;
+        return head;
+    }
+
+    public void treeToDoublyListHelper(TreeNode root, Queue<TreeNode> stack) {
+        if (root == null) {
+            return;
+        }
+        if (root.left != null) {
+            treeToDoublyListHelper(root.left, stack);
+        }
+        stack.add(root);
+        if (root.right != null) {
+            treeToDoublyListHelper(root.right, stack);
+        }
+    }
+
     static class ListNode {
         int val;
         ListNode next;

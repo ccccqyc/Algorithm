@@ -1083,13 +1083,33 @@ public class Solution {
 
     /**
      * 剑指 Offer 34. 二叉树中和为某一值的路径
+     * todo
      * <p>
      * T(n) = O(n)
      * S(n) = O(1)
+     *
+     * @since 2022-01-16 21:21:48
      */
     public List<List<Integer>> pathSum(TreeNode root, int target) {
         List<List<Integer>> list = new LinkedList<>();
+        pathSumhelper(root, target, list, new ArrayList<>());
         return list;
+    }
+
+    public void pathSumhelper(TreeNode root, int target, List<List<Integer>> res, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        list.add(root.val);
+        target -= root.val;
+
+        if (target == 0 && root.left == null && root.right == null) {
+            res.add(new ArrayList<>(list));
+        } else {
+            pathSumhelper(root.right, target, res, list);
+            pathSumhelper(root.left, target, res, list);
+        }
+        list.remove(list.size() - 1);
     }
 
     /**
@@ -1145,6 +1165,9 @@ public class Solution {
         return head;
     }
 
+    /**
+     * 中序
+     */
     public void treeToDoublyListHelper(TreeNode root, Queue<TreeNode> stack) {
         if (root == null) {
             return;

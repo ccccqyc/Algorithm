@@ -1027,23 +1027,30 @@ public class Solution {
             return false;
         }
 
-        int row = board.length, clomn = board[0].length, index = 0;
-        Stack<Position> stack = new Stack();
-        Queue<Position> queue = new LinkedList();
+        int row = board.length, colmn = board[0].length, index = 0;
 
-        Position positionTemp;
+
+        boolean[][] visit = new boolean[row][colmn];
         for (int i = 0; i < row; i++) {
-            for (int j = 0; j < clomn; j++) {
+            for (int j = 0; j < colmn; j++) {
+                Arrays.fill(visit, false);
                 if (board[i][j] == word.charAt(0)) {
-                    stack.push(new Position(i, j));
+
                 }
             }
         }
+        return false;
+    }
 
-        while (!stack.empty()) {
-            positionTemp = stack.pop();
-
+    public boolean existJudge(String s, int index, int row, int col, char[][] board, boolean[][] visit) {
+        if (index == s.length() - 1 && s.charAt(index) == board[row][col]) {
+            return true;
         }
+        if (s.charAt(index) != board[row][col]) {
+            return false;
+        }
+        visit[row][col] = true;
+
 
         return false;
     }
@@ -1063,12 +1070,55 @@ public class Solution {
         return DFSmovingCount(m, n, 0, 0, k, visit);
     }
 
+    /**
+     * 递归实现.
+     */
     public int DFSmovingCount(int m, int n, int i, int j, int k, boolean[][] visit) {
         if (i >= m || j >= n || visit[i][j] || (i % 10 + i / 10 + j % 10 + j / 10) > k) {
             return 0;
         }
         visit[i][j] = true;
         return 1 + DFSmovingCount(m, n, i, j + 1, k, visit) + DFSmovingCount(m, n, i + 1, j, k, visit);
+    }
+
+    /**
+     * 剑指 Offer 34. 二叉树中和为某一值的路径
+     * <p>
+     * T(n) = O(n)
+     * S(n) = O(1)
+     */
+    public List<List<Integer>> pathSum(TreeNode root, int target) {
+        List<List<Integer>> list = new LinkedList<>();
+        return list;
+    }
+
+    /**
+     * 剑指 Offer 54. 二叉搜索树的第k大节点
+     * 二叉搜索树 中序为递增数列
+     * <p>
+     * T(n) = O(K)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-16 20:48:00
+     */
+    public int kthLargest(TreeNode root, int k) {
+        List<Integer> list = new ArrayList<>();
+        kthLargestList(root, list);
+        return list.get(list.size() - k);
+    }
+
+    public void kthLargestList(TreeNode root, List<Integer> list) {
+        if (root == null) {
+            return;
+        }
+        if (root.left != null) {
+            kthLargestList(root.left, list);
+        }
+        list.add(root.val);
+        if (root.right != null) {
+            kthLargestList(root.right, list);
+        }
+
     }
 
     static class ListNode {
@@ -1080,23 +1130,22 @@ public class Solution {
         }
     }
 
-    class Position {
-        int x;
-        int y;
-
-        Position(int x, int y) {
-            this.x = x;
-            this.y = y;
-        }
-    }
-
     public class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
 
+        TreeNode() {
+        }
+
         TreeNode(int x) {
             val = x;
+        }
+
+        TreeNode(int val, TreeNode left, TreeNode right) {
+            this.val = val;
+            this.left = left;
+            this.right = right;
         }
     }
 

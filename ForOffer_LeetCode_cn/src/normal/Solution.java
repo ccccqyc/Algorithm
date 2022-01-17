@@ -1107,7 +1107,6 @@ public class Solution {
             res.add(new ArrayList<>(list));
         } else {
             pathSumhelper(root.right, target, res, list);
-            pathSumhelper(root.left, target, res, list);
         }
         list.remove(list.size() - 1);
     }
@@ -1179,6 +1178,66 @@ public class Solution {
         if (root.right != null) {
             treeToDoublyListHelper(root.right, stack);
         }
+    }
+
+    /**
+     * 剑指 Offer 45. 把数组排成最小的数
+     * <p>
+     * T(n) = O(K)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-17 18:54:16
+     */
+    public String minNumber(int[] nums) {
+        String[] strings = new String[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            strings[i] = String.valueOf(nums[i]);
+        }
+        minNumberquickSort(strings, 0, strings.length - 1);
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String s : strings
+        ) {
+            stringBuilder.append(s);
+        }
+        return stringBuilder.toString();
+    }
+
+    /**
+     * 快排
+     */
+    public void minNumberquickSort(String[] strs, int l, int r) {
+        if (l > r) {
+            return;
+        }
+        int i = l, j = r;
+        String temp = strs[l];
+        while (i < j) {
+            while ((strs[j] + strs[l]).compareTo(strs[i] + strs[l]) >= 0 && i < j) {
+                j--;
+            }
+            while ((strs[i] + strs[l]).compareTo(strs[j] + strs[l]) <= 0 && i < j) {
+                i++;
+            }
+            temp = strs[i];
+            strs[i] = strs[j];
+            strs[j] = temp;
+        }
+        strs[i] = strs[l];
+        strs[l] = temp;
+
+        minNumberquickSort(strs, l, i - 1);
+        minNumberquickSort(strs, i + 1, r);
+
+    }
+
+    /**
+     * 剑指 Offer 61. 扑克牌中的顺子
+     * <p>
+     * T(n) = O(K)
+     * S(n) = O(1)
+     */
+    public boolean isStraight(int[] nums) {
+        return false;
     }
 
     static class ListNode {

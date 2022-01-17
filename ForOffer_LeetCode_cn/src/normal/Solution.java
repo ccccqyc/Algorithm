@@ -1237,7 +1237,21 @@ public class Solution {
      * S(n) = O(1)
      */
     public boolean isStraight(int[] nums) {
-        return false;
+        Arrays.sort(nums);
+        int zerocnt = 0, diff = 0;
+        for (int i = 0; i < nums.length-1; i++) {
+            if (nums[i] == 0) {
+                zerocnt++;
+            } else {
+                if (nums[i] == nums[i + 1]) {
+                    return false;
+                }
+                if (nums[i] + 1 != nums[i + 1]) {
+                    diff += nums[i + 1] - nums[i] - 1;
+                }
+            }
+        }
+        return zerocnt >= diff;
     }
 
     static class ListNode {

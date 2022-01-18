@@ -1239,7 +1239,7 @@ public class Solution {
     public boolean isStraight(int[] nums) {
         Arrays.sort(nums);
         int zerocnt = 0, diff = 0;
-        for (int i = 0; i < nums.length-1; i++) {
+        for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i] == 0) {
                 zerocnt++;
             } else {
@@ -1252,6 +1252,20 @@ public class Solution {
             }
         }
         return zerocnt >= diff;
+    }
+
+    /**
+     * 剑指 Offer 40. 最小的k个数
+     * <p>
+     * T(n) = O(K)
+     * S(n) = O(1)
+     */
+    public int[] getLeastNumbers(int[] arr, int k) {
+        if (k == 0 || k > arr.length) {
+            return new int[]{};
+        }
+        Arrays.sort(arr);
+        return Arrays.copyOfRange(arr, 0, k);
     }
 
     static class ListNode {

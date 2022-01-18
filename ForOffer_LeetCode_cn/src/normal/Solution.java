@@ -1017,7 +1017,7 @@ public class Solution {
      * 剑指 Offer 12. 矩阵中的路径
      * 回溯
      * <p>
-     * T(n) = O(n)
+     * T(n) = O(m*n)
      * S(n) = O(1)
      *
      * @since 2022-01-15 10:06:16
@@ -1026,16 +1026,17 @@ public class Solution {
         if (board == null || word.equals("")) {
             return false;
         }
-
         int row = board.length, colmn = board[0].length, index = 0;
-
-
         boolean[][] visit = new boolean[row][colmn];
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < colmn; j++) {
-                Arrays.fill(visit, false);
+                index = 0;
                 if (board[i][j] == word.charAt(0)) {
-
+                    if (existJudge(word, index, i, j, board, visit)) {
+                        return true;
+                    } else {
+                        continue;
+                    }
                 }
             }
         }
@@ -1043,16 +1044,24 @@ public class Solution {
     }
 
     public boolean existJudge(String s, int index, int row, int col, char[][] board, boolean[][] visit) {
+        if (row < 0 || row >= board.length
+                || col < 0 || col >= board[0].length
+                || index >= s.length()
+                || s.charAt(index) != board[row][col]
+                || visit[row][col]) {
+            return false;
+        }
         if (index == s.length() - 1 && s.charAt(index) == board[row][col]) {
             return true;
         }
-        if (s.charAt(index) != board[row][col]) {
-            return false;
-        }
         visit[row][col] = true;
-
-
-        return false;
+        index++;
+        boolean ret = existJudge(s, index, row - 1, col, board, visit)
+                || existJudge(s, index, row, col - 1, board, visit)
+                || existJudge(s, index, row + 1, col, board, visit)
+                || existJudge(s, index, row, col + 1, board, visit);
+        visit[row][col] = false;
+        return ret;
     }
 
     /**
@@ -1259,6 +1268,8 @@ public class Solution {
      * <p>
      * T(n) = O(K)
      * S(n) = O(1)
+     *
+     * @since 2022-01-18 08:39:48
      */
     public int[] getLeastNumbers(int[] arr, int k) {
         if (k == 0 || k > arr.length) {

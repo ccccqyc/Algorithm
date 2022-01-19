@@ -1016,6 +1016,7 @@ public class Solution {
     /**
      * 剑指 Offer 12. 矩阵中的路径
      * 回溯
+     * todo
      * <p>
      * T(n) = O(m*n)
      * S(n) = O(1)
@@ -1278,6 +1279,40 @@ public class Solution {
         Arrays.sort(arr);
         return Arrays.copyOfRange(arr, 0, k);
     }
+
+
+    /**
+     * 剑指 Offer 55 - I. 二叉树的深度
+     * T(n) = O(K)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-19 08:38:15
+     */
+    public int maxDepth(TreeNode root) {
+        int count = 0, countTemp = 0;
+        if (root == null) {
+            return count;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode temp = root;
+        queue.add(temp);
+        while (!queue.isEmpty()) {
+            count++;
+            countTemp = queue.size();
+            while (countTemp > 0) {
+                temp = queue.poll();
+                countTemp--;
+                if (temp.left != null) {
+                    queue.add(temp.left);
+                }
+                if (temp.right != null) {
+                    queue.add(temp.right);
+                }
+            }
+        }
+        return count;
+    }
+
 
     static class ListNode {
         int val;

@@ -1313,6 +1313,56 @@ public class Solution {
         return count;
     }
 
+    /**
+     * 剑指 Offer 55 - II. 平衡二叉树
+     * 回溯,剪枝
+     * <p>
+     * T(n) = O(K)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-19 11:20:05
+     */
+    public boolean isBalanced(TreeNode root) {
+        if (root == null) {
+            return true;
+        }
+        if (Math.abs(isBalancedDFSI(root.left) - isBalancedDFSI(root.right)) <= 1) {
+            return isBalanced(root.left) && isBalanced(root.right);
+        }
+        return false;
+    }
+
+    public int isBalancedDFSI(TreeNode node) {
+        if (node == null) {
+            return 0;
+        }
+        return Math.max(isBalancedDFSI(node.left), isBalancedDFSI(node.right)) + 1;
+    }
+
+    public int isBalancedDFS(TreeNode root) {
+        int count = 0, countTemp = 0;
+        if (root == null) {
+            return count;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode temp = root;
+        queue.add(temp);
+        while (!queue.isEmpty()) {
+            count++;
+            countTemp = queue.size();
+            while (countTemp > 0) {
+                temp = queue.poll();
+                countTemp--;
+                if (temp.left != null) {
+                    queue.add(temp.left);
+                }
+                if (temp.right != null) {
+                    queue.add(temp.right);
+                }
+            }
+        }
+        return count;
+    }
 
     static class ListNode {
         int val;
@@ -1320,6 +1370,24 @@ public class Solution {
 
         ListNode(int x) {
             this.val = x;
+        }
+    }
+
+    class TreeNodeBalance {
+        TreeNode node;
+        int balance = -1;
+
+        TreeNodeBalance() {
+        }
+
+        TreeNodeBalance(TreeNode node) {
+            this.node = node;
+            this.balance = -1;
+        }
+
+        TreeNodeBalance(TreeNode node, int balance) {
+            this.node = node;
+            this.balance = balance;
         }
     }
 

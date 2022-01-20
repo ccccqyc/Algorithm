@@ -1377,6 +1377,39 @@ public class Solution {
         return (int) (Math.pow(n, 2) + n) >> 1;
     }
 
+    /**
+     * 剑指 Offer 64. 求1+2+…+n
+     *
+     * <p>
+     * T(n) = O(K)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-20 11:22:13
+     */
+    public int sumNumsI(int n) {
+        boolean flag = n > 0 && (n += sumNums(n - 1)) > 0;
+        return n;
+    }
+
+    /**
+     * 剑指 Offer 68 - I. 二叉搜索树的最近公共祖先
+     *
+     * @since 2022-01-20 21:00:18
+     */
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) {
+            return null;
+        }
+        if (root.val > p.val && root.val > q.val) {
+            return lowestCommonAncestor(root.left, p, q);
+        }
+        if (root.val < p.val && root.val < q.val) {
+            return lowestCommonAncestor(root.right, p, q);
+        }
+        return root;
+    }
+
+
     static class ListNode {
         int val;
         ListNode next;

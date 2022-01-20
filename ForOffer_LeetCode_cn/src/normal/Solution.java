@@ -1364,6 +1364,19 @@ public class Solution {
         return count;
     }
 
+    /**
+     * 剑指 Offer 64. 求1+2+…+n
+     *
+     * <p>
+     * T(n) = O(K)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-20 11:22:13
+     */
+    public int sumNums(int n) {
+        return (int) (Math.pow(n, 2) + n) >> 1;
+    }
+
     static class ListNode {
         int val;
         ListNode next;

@@ -1412,6 +1412,30 @@ public class Solution {
         return root;
     }
 
+    /**
+     * 剑指 Offer 68 - II. 二叉树的最近公共祖先
+     *
+     * @since 2022-01-20 22:06:28
+     */
+    public TreeNode lowestCommonAncestorII(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null) {
+            return null;
+        }
+        if (root == p || root == q) {
+            return root;
+        }
+        TreeNode left = lowestCommonAncestorII(root.left, p, q);
+        TreeNode right = lowestCommonAncestorII(root.right, p, q);
+        if (left != null && right != null) {
+            return root;
+        } else if (left != null && right == null) {
+            return left;
+        } else if (right != null && left == null) {
+            return right;
+        } else {
+            return null;
+        }
+    }
 
     static class ListNode {
         int val;

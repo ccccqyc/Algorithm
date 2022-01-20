@@ -1393,6 +1393,9 @@ public class Solution {
 
     /**
      * 剑指 Offer 68 - I. 二叉搜索树的最近公共祖先
+     * <p>
+     * T(n) = O(K)
+     * S(n) = O(1)
      *
      * @since 2022-01-20 21:00:18
      */

@@ -1465,6 +1465,47 @@ public class Solution {
         return root;
     }
 
+    /**
+     * 剑指 Offer 16. 数值的整数次方
+     * <p>
+     * T(n) = O(K)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-21 20:57:25
+     */
+    public double myPow(double x, int n) {
+        return x;
+    }
+
+    /**
+     * 剑指 Offer 33. 二叉搜索树的后序遍历序列
+     * <p>
+     * 空间换时间
+     * <p>
+     * T(n) = O(K)
+     * S(n) = O(1)
+     */
+    public boolean verifyPostorder(int[] postorder) {
+        if (postorder.length < 2) {
+            return true;
+        }
+        int index = postorder.length - 1;
+        int index0 = 0, index1 = 0;
+        while (postorder[index0] < postorder[index] && index0 < index) {
+            index0++;
+        }
+        index1 = index0;
+        while (postorder[index1] > postorder[index] && index1 < index) {
+            index1++;
+        }
+        if (index1 != index) {
+            return false;
+        } else {
+            return verifyPostorder(Arrays.copyOfRange(postorder, 0, index0)) &&
+                    verifyPostorder(Arrays.copyOfRange(postorder, index0, index));
+        }
+    }
+
     static class ListNode {
         int val;
         ListNode next;

@@ -1467,14 +1467,33 @@ public class Solution {
 
     /**
      * 剑指 Offer 16. 数值的整数次方
+     * 快速幂法
      * <p>
      * T(n) = O(K)
      * S(n) = O(1)
+     * todo 快速幂
      *
      * @since 2022-01-21 20:57:25
      */
     public double myPow(double x, int n) {
-        return x;
+        if (x == 0) {
+            return 0;
+        }
+        long b = n;
+        double ret = 1.0;
+        if (n < 0) {
+            x = 1 / x;
+            b = -b;
+        }
+        while (b > 0) {
+            if ((b & 1) == 1) {
+                ret *= x;
+            }
+            x *= x;
+            b >>= 1;
+        }
+
+        return ret;
     }
 
     /**
@@ -1482,8 +1501,8 @@ public class Solution {
      * <p>
      * 空间换时间
      * <p>
-     * T(n) = O(K)
-     * S(n) = O(1)
+     * T(n) = O(N)
+     * S(n) = O(N^2)
      */
     public boolean verifyPostorder(int[] postorder) {
         if (postorder.length < 2) {
@@ -1505,6 +1524,16 @@ public class Solution {
                     verifyPostorder(Arrays.copyOfRange(postorder, index0, index));
         }
     }
+
+    /**
+     * 剑指 Offer 33. 二叉搜索树的后序遍历序列
+     * 单调栈
+     * todo
+     */
+    public boolean verifyPostorderI(int[] postorder) {
+        return false;
+    }
+
 
     static class ListNode {
         int val;

@@ -1437,6 +1437,34 @@ public class Solution {
         }
     }
 
+    /**
+     * 剑指 Offer 07. 重建二叉树
+     * <p>
+     * 前序+中序 -> 二叉树
+     * T(n) = O(K)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-21 08:53:59
+     */
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        if (preorder.length == 0) {
+            return null;
+        }
+        TreeNode root = new TreeNode(preorder[0]);
+        int index = 0;
+        for (int i = 0; i < inorder.length; i++) {
+            if (inorder[i] == preorder[0]) {
+                index = i;
+                break;
+            }
+        }
+        TreeNode left = buildTree(Arrays.copyOfRange(preorder, 1, index + 1), Arrays.copyOfRange(inorder, 0, index));
+        TreeNode right = buildTree(Arrays.copyOfRange(preorder, 1 + index, preorder.length), Arrays.copyOfRange(inorder, index + 1, inorder.length));
+        root.left = left;
+        root.right = right;
+        return root;
+    }
+
     static class ListNode {
         int val;
         ListNode next;

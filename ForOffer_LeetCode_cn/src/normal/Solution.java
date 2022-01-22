@@ -1534,6 +1534,22 @@ public class Solution {
         return false;
     }
 
+    /**
+     * 剑指 Offer 15. 二进制中1的个数
+     * 位运算
+     * 把一个整数减去1，再和原整数做与运算，会把该整数最右边一个1变成0.
+     * <p>
+     * T(n) = O(N)
+     * S(n) = O(1)
+     */
+    public int hammingWeight(int n) {
+        int count = 0;
+        while (n != 0) {
+            count++;
+            n &= (n - 1);
+        }
+        return count;
+    }
 
     static class ListNode {
         int val;

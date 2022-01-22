@@ -1549,6 +1549,16 @@ public class Solution {
             n &= (n - 1);
         }
         return count;
+
+    }
+
+    /**
+     * 剑指 Offer 15. 二进制中1的个数
+     * 库方法
+     *
+     */
+    public int hammingWeightI(int n) {
+        return Integer.bitCount(n);
     }
 
     static class ListNode {

@@ -1563,11 +1563,11 @@ public class Solution {
     /**
      * 剑指 Offer 65. 不用加减乘除做加法
      * ^ 亦或 ----相当于 无进位的求和， 想象10进制下的模拟情况：（如:19+1=20；无进位求和就是10，而非20；因为它不管进位情况）
-     *
+     * <p>
      * & 与 ----相当于 求每位的进位数， 先看定义：1&1=1；1&0=0；0&0=0；即都为1的时候才为1，正好可以模拟进位数的情况,还是想象10进制下模拟情况：（9+1=10，如果是用&的思路来处理，则9+1得到的进位数为1，而不是10，所以要用<<1向左再移动一位，这样就变为10了）；
-     *
+     * <p>
      * 这样公式就是：（a^b) ^ ((a&b)<<1) 即：每次无进位求 + 每次得到的进位数--------我们需要不断重复这个过程，直到进位数为0为止；
-     *
+     * <p>
      * T(n) = O(N)
      * S(n) = O(1)
      */
@@ -1577,6 +1577,38 @@ public class Solution {
         }
 
         return add(a ^ b, (a & b) << 1);
+    }
+
+    /**
+     * 剑指 Offer 56 - I. 数组中数字出现的次数
+     * 常规解法
+     * T(n) = O(N)
+     * S(n) = O(1)
+     * @since 2022-01-23 14:51:11
+     */
+    public int[] singleNumbers(int[] nums) {
+        if (nums.length == 2) {
+            return nums;
+        }
+        Arrays.sort(nums);
+        int i = 1, count = 0;
+        int[] ints = new int[2];
+        if (nums[0] != nums[1]) {
+            ints[count++] = nums[0];
+        }
+        while (count != 2) {
+            if (nums[i - 1] != nums[i] && nums[i] != nums[i + 1]) {
+                ints[count++] = nums[i];
+            }
+            i++;
+            if (i == nums.length - 1) {
+                break;
+            }
+        }
+        if (i == nums.length - 1 && nums[i - 1] != nums[i]) {
+            ints[1] = nums[i];
+        }
+        return ints;
     }
 
     static class ListNode {

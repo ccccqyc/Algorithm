@@ -1642,6 +1642,27 @@ public class Solution {
         return new int[]{ret, ret ^ x};
     }
 
+    /**
+     * 剑指 Offer 56 - II. 数组中数字出现的次数 II
+     * T(n) = O(N)
+     * S(n) = O(1)
+     */
+    public int singleNumberII(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int a;
+        for (int i = 0; i < nums.length; i++) {
+            a = map.getOrDefault(nums[i], 0);
+            map.put(nums[i], a++);
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (map.get(nums[i]) == 1) {
+                return nums[i];
+            }
+
+        }
+        return -1;
+    }
+
     static class ListNode {
         int val;
         ListNode next;

@@ -1584,6 +1584,7 @@ public class Solution {
      * 常规解法
      * T(n) = O(N)
      * S(n) = O(1)
+     *
      * @since 2022-01-23 14:51:11
      */
     public int[] singleNumbers(int[] nums) {
@@ -1609,6 +1610,36 @@ public class Solution {
             ints[1] = nums[i];
         }
         return ints;
+    }
+
+    /**
+     * 剑指 Offer 56 - I. 数组中数字出现的次数
+     * <p>
+     * 异或解法
+     * <p>
+     * 交换律
+     * 结合律（即(a^b)^c == a^(b^c)）
+     * 对于任何数x，都有x^x=0，x^0=x
+     * 自反性 A XOR B XOR B = A xor 0 = A ---> A XOR B = C 则 C XOR B = A
+     * <p>
+     * T(n) = O(N)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-23 15:22:44
+     */
+    public int[] singleNumbersI(int[] nums) {
+        int x = 0;
+        for (int temp : nums) {
+            x ^= temp;
+        }
+        int flag = x & (-x);
+        int ret = 0;
+        for (int val : nums) {
+            if ((flag & val) != 0) {
+                ret ^= val;
+            }
+        }
+        return new int[]{ret, ret ^ x};
     }
 
     static class ListNode {

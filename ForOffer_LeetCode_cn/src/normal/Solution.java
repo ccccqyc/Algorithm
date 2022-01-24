@@ -1672,14 +1672,26 @@ public class Solution {
      */
     public int majorityElement(int[] nums) {
         Arrays.sort(nums);
-        return nums[nums.length/2];
+        return nums[nums.length / 2];
     }
 
     /**
      * 剑指 Offer 66. 构建乘积数组
+     * 数学 巧妙两次循环
+     * <p>
+     * T(n) = O(N)
+     * S(n) = O(N)
      */
     public int[] constructArr(int[] a) {
-        return a;
+        int n = a.length;
+        int[] ret = new int[n];
+        for (int i = 0, temp = 1; i < n; temp *= a[i], i++) {
+            ret[i] = temp;
+        }
+        for (int i = n - 1, temp = 1; i >= 0; temp *= a[i], i--) {
+            ret[i] *= temp;
+        }
+        return ret;
     }
 
     static class ListNode {

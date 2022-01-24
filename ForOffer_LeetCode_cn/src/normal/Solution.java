@@ -1663,6 +1663,25 @@ public class Solution {
         return -1;
     }
 
+    /**
+     * 剑指 Offer 39. 数组中出现次数超过一半的数字
+     * T(n) = O(N)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-24 16:59:21
+     */
+    public int majorityElement(int[] nums) {
+        Arrays.sort(nums);
+        return nums[nums.length/2];
+    }
+
+    /**
+     * 剑指 Offer 66. 构建乘积数组
+     */
+    public int[] constructArr(int[] a) {
+        return a;
+    }
+
     static class ListNode {
         int val;
         ListNode next;

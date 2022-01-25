@@ -1681,6 +1681,8 @@ public class Solution {
      * <p>
      * T(n) = O(N)
      * S(n) = O(N)
+     *
+     * @since 2022-01-24 18:10:31
      */
     public int[] constructArr(int[] a) {
         int n = a.length;
@@ -1690,6 +1692,38 @@ public class Solution {
         }
         for (int i = n - 1, temp = 1; i >= 0; temp *= a[i], i--) {
             ret[i] *= temp;
+        }
+        return ret;
+    }
+
+    /**
+     * 剑指 Offer 14- I. 剪绳子
+     * <p>
+     * T(n) = O(N)
+     * S(n) = O(N)
+     *
+     * @since 2022-01-25 08:53:26
+     */
+    public int cuttingRope(int n) {
+        if (n == 2) {
+            return 1;
+        } else if (n == 3) {
+            return 2;
+        } else if (n == 4) {
+            return 4;
+        }
+        int ret = 1, ncpy = n;
+        for (int i = 1; i < n; i++) {
+            if (ncpy > 4) {
+                ret *= 3;
+                ncpy -= 3;
+            } else if (ncpy == 4) {
+                ret *= 4;
+                break;
+            } else {
+                ret *= ncpy;
+                break;
+            }
         }
         return ret;
     }

@@ -1732,7 +1732,8 @@ public class Solution {
      * 剑指 Offer 57 - II. 和为s的连续正数序列
      * <p>
      * 利用数列求和公式
-     * <p>
+     * todo 注意 int[][] 返回的 list设置
+     *
      * T(n) = O(N)
      * S(n) = O(1)
      *
@@ -1792,7 +1793,7 @@ public class Solution {
      * <p>
      * T(n) = O(N)
      * S(n) = O(N)
-     *
+     * todo 注意 设置row , column length & row == 1 时 返回 设置
      * @since 2022-01-26 14:01:32
      */
     public int[] spiralOrder(int[][] matrix) {

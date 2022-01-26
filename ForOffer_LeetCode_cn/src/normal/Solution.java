@@ -652,6 +652,9 @@ public class Solution {
      * 剑指 Offer 42. 连续子数组的最大和
      * 动态规划.
      * <p>
+     * 先计算子问题,再由子问题计算父问题
+     * 重叠子问题,最优子结构,刻画最优的结构
+     * <p>
      * T(n) = O(n)
      * S(n) = O(1)
      *
@@ -1733,7 +1736,7 @@ public class Solution {
      * <p>
      * 利用数列求和公式
      * todo 注意 int[][] 返回的 list设置
-     *
+     * <p>
      * T(n) = O(N)
      * S(n) = O(1)
      *
@@ -1794,6 +1797,7 @@ public class Solution {
      * T(n) = O(N)
      * S(n) = O(N)
      * todo 注意 设置row , column length & row == 1 时 返回 设置
+     *
      * @since 2022-01-26 14:01:32
      */
     public int[] spiralOrder(int[][] matrix) {
@@ -1839,9 +1843,23 @@ public class Solution {
 
     /**
      * 剑指 Offer 31. 栈的压入、弹出序列
+     * <p>
+     * T(n) = O(N)
+     * S(n) = O(N)
+     *
+     * @since 2022-01-26 14:57:12
      */
     public boolean validateStackSequences(int[] pushed, int[] popped) {
-        return false;
+        Deque<Integer> deque = new ArrayDeque<>();
+        int j = 0;
+        for (int temp : pushed) {
+            deque.push(temp);
+            while (j < popped.length && !deque.isEmpty() && deque.peek() == popped[j]) {
+                j++;
+                deque.pop();
+            }
+        }
+        return j == popped.length;
     }
 
     static class ListNode {

@@ -1700,7 +1700,7 @@ public class Solution {
      * 剑指 Offer 14- I. 剪绳子
      * <p>
      * T(n) = O(N)
-     * S(n) = O(N)
+     * S(n) = O(1)
      *
      * @since 2022-01-25 08:53:26
      */
@@ -1726,6 +1726,45 @@ public class Solution {
             }
         }
         return ret;
+    }
+
+    /**
+     * 剑指 Offer 57 - II. 和为s的连续正数序列
+     *
+     * 利用数列求和公式
+     * <p>
+     * T(n) = O(N)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-25 09:58:41
+     */
+    public int[][] findContinuousSequence(int target) {
+        int n = (int) Math.floor(Math.sqrt(1 + 8 * target) / 2 - 0.5);
+        List<int[]> list = new ArrayList<>();
+        int[] temp;
+        int dtarget, index;
+        for (int i = n; i >= 2; i--) {
+            dtarget = target / i;
+            if (i % 2 == 0) {
+                if ((dtarget * 2 + 1) * i / 2 == target) {
+                    index = dtarget - i / 2 + 1;
+                } else {
+                    continue;
+                }
+            } else {
+                if (dtarget * i == target) {
+                    index = dtarget - i / 2;
+                } else {
+                    continue;
+                }
+            }
+            temp = new int[i];
+            for (int k = 0; k < i; k++) {
+                temp[k] = index + k;
+            }
+            list.add(temp);
+        }
+        return list.toArray(new int[list.size()][]);
     }
 
     static class ListNode {

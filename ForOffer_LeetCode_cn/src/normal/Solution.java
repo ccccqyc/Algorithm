@@ -1730,7 +1730,7 @@ public class Solution {
 
     /**
      * 剑指 Offer 57 - II. 和为s的连续正数序列
-     *
+     * <p>
      * 利用数列求和公式
      * <p>
      * T(n) = O(N)
@@ -1765,6 +1765,26 @@ public class Solution {
             list.add(temp);
         }
         return list.toArray(new int[list.size()][]);
+    }
+
+    /**
+     * 剑指 Offer 62. 圆圈中最后剩下的数字
+     * https://blog.csdn.net/u011500062/article/details/72855826
+     * 约瑟夫环问题
+     * f(n,m) = (f(n-1,m) + m) % n
+     * <p>
+     * T(n) = O(N)
+     * S(n) = O(1)
+     *
+     * @since 2022-01-26 12:46:58
+     */
+    public int lastRemaining(int n, int m) {
+        int count = 0;
+        for (int i = 2; i <= n; i++) {
+            count = (count + m) % i;
+        }
+
+        return count;
     }
 
     static class ListNode {

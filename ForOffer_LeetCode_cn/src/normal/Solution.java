@@ -1787,6 +1787,62 @@ public class Solution {
         return count;
     }
 
+    /**
+     * 剑指 Offer 29. 顺时针打印矩阵
+     * <p>
+     * T(n) = O(N)
+     * S(n) = O(N)
+     *
+     * @since 2022-01-26 14:01:32
+     */
+    public int[] spiralOrder(int[][] matrix) {
+        int rowlen = matrix.length;
+        if (rowlen == 0) {
+            return new int[0];
+        }
+        int columnlen = matrix[0].length, index = 0;
+        int[] res = new int[rowlen * columnlen];
+        int left = 0, top = 0, right = columnlen - 1, bottom = rowlen - 1;
+        while (true) {
+            for (int i = left; i <= right; i++) {
+                res[index++] = matrix[top][i];
+            }
+            top++;
+            if (top > bottom) {
+                break;
+            }
+            for (int i = top; i <= bottom; i++) {
+                res[index++] = matrix[i][right];
+            }
+            right--;
+            if (left > right) {
+                break;
+            }
+            for (int i = right; i >= left; i--) {
+                res[index++] = matrix[bottom][i];
+            }
+            bottom--;
+            if (bottom < top) {
+                break;
+            }
+            for (int i = bottom; i >= top; i--) {
+                res[index++] = matrix[i][left];
+            }
+            left++;
+            if (left > right) {
+                break;
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 剑指 Offer 31. 栈的压入、弹出序列
+     */
+    public boolean validateStackSequences(int[] pushed, int[] popped) {
+        return false;
+    }
+
     static class ListNode {
         int val;
         ListNode next;

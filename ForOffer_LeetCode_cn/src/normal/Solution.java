@@ -1,7 +1,5 @@
 package normal;
 
-import java.util.*;
-
 /**
  * @author ccccqyc
  * @date : 2022/01/03/14:50
@@ -1860,6 +1858,18 @@ public class Solution {
             }
         }
         return j == popped.length;
+    }
+
+    /**
+     * 剑指 Offer 20. 表示数值的字符串
+     *
+     * @since
+     */
+    public boolean isNumber(String s) {
+        String ss = new String();
+        s = s.trim();
+
+        return false;
     }
 
     static class ListNode {

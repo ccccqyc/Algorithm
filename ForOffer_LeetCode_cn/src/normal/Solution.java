@@ -1,5 +1,10 @@
 package normal;
 
+import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
+
+import java.math.BigInteger;
+import java.util.*;
+
 /**
  * @author ccccqyc
  * @date : 2022/01/03/14:50
@@ -1866,7 +1871,9 @@ public class Solution {
      * @since
      */
     public boolean isNumber(String s) {
-        if (s == null || s.length() == 0) return false;
+        if (s == null || s.length() == 0) {
+            return false;
+        }
         //去掉首位空格
         s = s.trim();
         boolean numFlag = false;
@@ -1892,6 +1899,52 @@ public class Solution {
             }
         }
         return numFlag;
+    }
+
+    /**
+     * 剑指 Offer 67. 把字符串转换成整数
+     * <p>
+     * T(n) = O(N)
+     * S(n) = O(N)
+     *
+     * @since 2022-01-28 08:22:15
+     */
+    public int strToInt(String str) {
+        str = str.trim();
+        if (str.length() == 0) {
+            return 0;
+        }
+        boolean isMinus = false;
+        char[] ch = str.toCharArray();
+        if (ch[0] == '+' || ch[0] == '-' || Character.isDigit(ch[0])) {
+            if (ch[0] == '+' || ch[0] == '-') {
+                if (ch[0] == '-') {
+                    isMinus = true;
+                }
+                ch = Arrays.copyOfRange(ch, 1, ch.length);
+            }
+            int index = 0;
+            //结果可能超int范围，拿个long接一下
+            //'-abc'这种情况返回的也是0，舒服，一箭双雕
+            long res = 0;
+            //短路与助您远离空指针喔，铁汁们，先后顺序关注一下
+            while (index < ch.length && Character.isDigit(ch[index])) {
+                //一位一位往上算
+                res *= 10;
+                res += ch[index] - '0';
+                //及时止损，一看到res超int范围立马return
+                //你要是想着最后一起算，那肯定会有超long范围的测试用例等着你，你就哭去吧
+                if (res > Integer.MAX_VALUE) {
+                    //正负号看是正数负数，返回最大值
+                    return isMinus ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+                }
+                //别忘了往后走一位
+                index++;
+            }
+            //long转int就是这么朴实无华
+            return isMinus ? -(int) res : (int) res;
+        }
+        return 0;
     }
 
     static class ListNode {

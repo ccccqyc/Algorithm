@@ -3,6 +3,7 @@ package normal;
 import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
 
 import java.math.BigInteger;
+import java.sql.SQLOutput;
 import java.util.*;
 
 /**
@@ -1945,6 +1946,39 @@ public class Solution {
             return isMinus ? -(int) res : (int) res;
         }
         return 0;
+    }
+
+    /**
+     * 剑指 Offer 59 - I. 滑动窗口的最大值
+     * <p>
+     * T(n) = O(N)
+     * S(n) = O(N)
+     *
+     * @since 2022-01-28 09:41:22
+     */
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        if (nums.length == 0) {
+            return new int[0];
+        }
+        PriorityQueue<Integer> priorityQueue1 = new PriorityQueue<>((o1, o2) -> o2 - o1);
+        PriorityQueue<Integer> priorityQueue2 = new PriorityQueue<>((o1, o2) -> o2 - o1);
+
+        for (int i = 0; i < k; i++) {
+            priorityQueue1.add(nums[i]);
+        }
+        int len = nums.length;
+        int[] ret = new int[len - k + 1];
+        ret[0] = priorityQueue1.peek();
+        for (int i = 0, j = i + k; j < len; i++, j++) {
+            priorityQueue1.add(nums[j]);
+            priorityQueue2.add(nums[i]);
+            while (priorityQueue1.peek().equals(priorityQueue2.peek())) {
+                priorityQueue1.poll();
+                priorityQueue2.poll();
+            }
+            ret[i + 1] = priorityQueue1.peek();
+        }
+        return ret;
     }
 
     static class ListNode {

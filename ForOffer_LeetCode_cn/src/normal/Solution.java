@@ -2021,6 +2021,26 @@ public class Solution {
         return dp[n - 1];
     }
 
+    /**
+     * 剑指 Offer 17. 打印从1到最大的n位数
+     * T(n) = O(N)
+     * S(n) = O(N)
+     *
+     * @since 2022-01-31 08:30:19
+     */
+    public int[] printNumbers(int n) {
+        StringBuilder stringBuilder = new StringBuilder("1");
+        for (int i = 0; i < n; i++) {
+            stringBuilder.append("0");
+        }
+        int[] ret = new int[Integer.parseInt(stringBuilder.toString()) - 1];
+        for (int i = 0; i < ret.length; i++) {
+            ret[i] = i + 1;
+        }
+
+        return ret;
+    }
+
     static class ListNode {
         int val;
         ListNode next;

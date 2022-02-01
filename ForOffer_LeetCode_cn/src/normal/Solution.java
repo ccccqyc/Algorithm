@@ -1982,18 +1982,6 @@ public class Solution {
     }
 
     /**
-     * 剑指 Offer 38. 字符串的排列
-     * <p>
-     * T(n) = O(N)
-     * S(n) = O(N)
-     *
-     * @since 2022-01-30 22:30:12
-     */
-    public String[] permutation(String s) {
-        return new String[1];
-    }
-
-    /**
      * 剑指 Offer 49. 丑数
      * <p>
      * T(n) = O(N)
@@ -2039,6 +2027,39 @@ public class Solution {
         }
 
         return ret;
+    }
+
+    /**
+     * 剑指 Offer 38. 字符串的排列
+     * <p>
+     * T(n) = O(N*N)
+     * S(n) = O(N!)
+     *
+     * @since 2022-02-01 23:22:49
+     */
+    public String[] permutation(String s) {
+        Set<String> strings = new HashSet<>();
+        char[] arr = s.toCharArray();
+        StringBuilder stringBuilder = new StringBuilder();
+        boolean[] visited = new boolean[arr.length];
+        reverseDFS(arr, "", visited, strings);
+        return strings.toArray(new String[0]);
+    }
+
+    public void reverseDFS(char[] chars, String str, boolean[] visited, Set<String> list) {
+        if (str.length() == chars.length) {
+            list.add(str);
+            return;
+        }
+
+        for (int i = 0; i < chars.length; i++) {
+            if (visited[i]) {
+                continue;
+            }
+            visited[i] = true;
+            reverseDFS(chars, str + String.valueOf(chars[i]), visited, list);
+            visited[i] = false;
+        }
     }
 
     static class ListNode {

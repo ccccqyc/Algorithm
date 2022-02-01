@@ -2025,7 +2025,6 @@ public class Solution {
         for (int i = 0; i < ret.length; i++) {
             ret[i] = i + 1;
         }
-
         return ret;
     }
 
@@ -2060,6 +2059,47 @@ public class Solution {
             reverseDFS(chars, str + String.valueOf(chars[i]), visited, list);
             visited[i] = false;
         }
+    }
+
+    /**
+     * 剑指 Offer 51. 数组中的逆序对
+     * <p>
+     * T(n) = O(N*N)
+     * S(n) = O(N!)
+     *
+     * @since 2022-02-01 23:32:53
+     */
+    public int reversePairs(int[] nums) {
+        return 1;
+    }
+
+    /**
+     * 剑指 Offer 60. n个骰子的点数
+     *
+     * @since 2022-02-01 23:38:29
+     */
+    public double[] dicesProbability(int n) {
+        return new double[1];
+    }
+
+    /**
+     * 剑指 Offer 43. 1～n 整数中 1 出现的次数
+     */
+    public int countDigitOne(int n) {
+        int ret = 0;
+        for (int i = 1; i <= n; i++) {
+            ret += countDigit1Help(i);
+        }
+        return ret;
+    }
+
+    public int countDigit1Help(int n) {
+        int count = 0;
+        while (n != 0) {
+            count += n % 10 == 1 ? 1 : 0;
+            n /= 10;
+        }
+        return count;
     }
 
     static class ListNode {

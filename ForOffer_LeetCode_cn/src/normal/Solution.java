@@ -2075,7 +2075,7 @@ public class Solution {
 
     /**
      * 剑指 Offer 60. n个骰子的点数
-     *
+     * 完结.
      * @since 2022-02-01 23:38:29
      */
     public double[] dicesProbability(int n) {
